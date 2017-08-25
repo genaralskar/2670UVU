@@ -1,6 +1,6 @@
 //Maya ASCII 2017ff05 scene
 //Name: lucha family.ma
-//Last modified: Fri, Aug 25, 2017 11:22:55 AM
+//Last modified: Fri, Aug 25, 2017 11:25:00 AM
 //Codeset: 1252
 requires maya "2017ff05";
 currentUnit -l centimeter -a degree -t film;
@@ -13,13 +13,13 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "68E6AD71-408C-2321-43A6-2C8E6B465AF4";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 3.0722589222757746 2.8627487734731631 28.538334073183997 ;
-	setAttr ".r" -type "double3" -3.3383528280749095 4.9999999999979412 -2.4942999090972117e-017 ;
+	setAttr ".t" -type "double3" 6.9955723803590253 3.4783198739135548 21.323636450005399 ;
+	setAttr ".r" -type "double3" -0.93835282807614118 379.39999999999077 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "03104E19-46C2-2608-FEBB-D3999DAA755F";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 28.212953710872011;
+	setAttr ".coi" 22.49294497167385;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -638,12 +638,24 @@ createNode mesh -n "pCube7Shape" -p "pCube7";
 	setAttr -s 4 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.5 0.875 ;
+	setAttr ".pv" -type "double2" 0.49885174632072449 0.64746475219726563 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 14 ".pt";
+	setAttr ".pt[354]" -type "float3" -7.4505806e-009 0.073436275 -0.028841052 ;
+	setAttr ".pt[355]" -type "float3" 0 0.050760228 0 ;
+	setAttr ".pt[356]" -type "float3" 0 0.050760228 0 ;
+	setAttr ".pt[357]" -type "float3" 0 0.073436275 -0.0249207 ;
+	setAttr ".pt[358]" -type "float3" 7.4505806e-009 0.073436275 -0.028841052 ;
+	setAttr ".pt[362]" -type "float3" 0 0.024750102 0 ;
+	setAttr ".pt[363]" -type "float3" 0 0.012770575 0 ;
+	setAttr ".pt[364]" -type "float3" 0 0.012770575 0 ;
+	setAttr ".pt[365]" -type "float3" 0 0.024750102 0 ;
+	setAttr ".pt[366]" -type "float3" 0 0.050760228 0 ;
+	setAttr ".pt[367]" -type "float3" 0 0.050760228 0 ;
 	setAttr ".dr" 1;
 	setAttr ".ai_translator" -type "string" "polymesh";
 createNode transform -n "pCube8";
