@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
+
 public class MoveCharacter : MonoBehaviour {
 
 	CharacterController cc;
@@ -11,7 +13,7 @@ public class MoveCharacter : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		cc = GetComponent<CharacterController>();
-		MoveInput.KeyAction = Move;
+		MoveInput.KeyAction += Move;
 	}
 	
 	void Move(float _movement)
