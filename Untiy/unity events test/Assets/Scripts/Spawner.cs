@@ -33,6 +33,7 @@ public class Spawner : MonoBehaviour {
 			if(_spawnPosition != Vector3.zero)
 			{
 				Instantiate (spawnObject, _spawnPosition, _spawnRotation);
+				EventManager.TriggerEvent("Inc");
 				Debug.Log("Object Spawned!");
 			}
 		}
