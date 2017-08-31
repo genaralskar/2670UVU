@@ -18,7 +18,7 @@ public class MoveCharacter : MonoBehaviour {
 	
 	void Move(float _movement)
 	{
-		print(_movement);
+		// print(_movement);
 		tempMove.x = _movement * speed * Time.deltaTime;
 		cc.Move(tempMove);
 	}
