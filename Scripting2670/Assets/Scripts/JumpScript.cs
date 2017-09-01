@@ -9,6 +9,8 @@ public class JumpScript : MonoBehaviour {
 	Vector3 moveDirection;
 	CharacterController cc;
 	Gravity grav;
+	public int jumpAmount = 2;
+	int curJumps;
 
 	// Use this for initialization
 	void Start () {
@@ -25,8 +27,16 @@ public class JumpScript : MonoBehaviour {
 		// print("Jump!");
 		if(Input.GetButtonDown("Jump") && cc.isGrounded)
 		{
+			curJumps = 0;
+			print("jumps reset");
+		}
+
+		if(Input.GetButtonDown("Jump") && cc.isGrounded && curJumps < jumpAmount + 1)
+		{
 			moveDirection.y = jumpSpeed;
+			curJumps++;
 			print("Jump!");
+			print("curJumps is "+curJumps);
 		}
 		if(moveDirection.y > 0)
 		{
