@@ -31,28 +31,46 @@ public class MoveCharacter : MonoBehaviour {
 	}	
 	void Move(float _movement)
 	{
-		// print(_movement);
 		if(!cc.isGrounded)
 		{
+			// gravity
 			tempMove.y -= gravity * Time.deltaTime;
+			
+			if(cc.collisionFlags == CollisionFlags.Sides)
+			{
+				// if player touches a wall, reset jump count
+				// allows wall jumps
+				if(curJumps != 0)
+				{
+					curJumps = 0;
+				}
+				// if moving downards on a wall, slow the player
+				// allows player to jump up agains walls, but slides down slower
+				if(tempMove.y < 0)
+					tempMove.y /= 1.5f;
+			}
+		}
+		// resets jump count when player lands
+		else if(curJumps != 0)
+		{
+			curJumps = 0;
 		}
 
-		tempMove.x = _movement * speed * Time.deltaTime;
-		cc.Move(tempMove);
+		// move character left and right
+		tempMove.x = _movement * speed;
+		cc.Move(tempMove * Time.deltaTime);
 	}
 	
 	void Jump()
 	{
-		if(cc.isGrounded)
-		{
-			curJumps = 0;
-		}
-		if(curJumps < jumpAmount)
+		// player jumps if there are jumps left and not pushed against JUST a wall
+		// player can still jump against a wall from the ground
+		// player must move away from wall to jump again
+		if(curJumps < jumpAmount && cc.collisionFlags != CollisionFlags.Sides)
 		{
 			curJumps++;
 			print("Jump");
 			tempMove.y = jumpPower;
-			print(tempMove.y);
 		}
 	}
 }

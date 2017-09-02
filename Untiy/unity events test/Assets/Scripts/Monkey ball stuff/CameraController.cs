@@ -14,8 +14,8 @@ public class CameraController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position = sphere.transform.position - offset;
+		//transform.position = sphere.transform.position - offset;
 		// transform.rotation = Quaternion.LookRotation(sphere.transform.position, Vector3.up);
-		transform.LookAt(sphere.transform.position);
+		//transform.LookAt(sphere.transform.position);
 	}
 }
