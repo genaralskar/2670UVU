@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [RequireComponent(typeof(CharacterController))]
 
 public class MoveCharacter : MonoBehaviour {
-
 
 
 	CharacterController cc;
@@ -13,9 +13,10 @@ public class MoveCharacter : MonoBehaviour {
 	public float speed = 5;
 	public float gravity = 1.5f;
 	public float jumpPower = .5f;
-
 	public int jumpAmount = 2;
 	int curJumps;
+
+	Action OnLandAction;
 
 	// Use this for initialization
 	void Start () {
@@ -35,6 +36,15 @@ public class MoveCharacter : MonoBehaviour {
 		{
 			// gravity
 			tempMove.y -= gravity * Time.deltaTime;
+			// print(cc.isGrounded);
+
+			// one time action to be performed when the character lands
+			if(OnLandAction == null)
+			{
+				OnLandAction += ResetGravity;
+				OnLandAction += ResetJumps;
+				print("land action assigned");
+			}
 			
 			if(cc.collisionFlags == CollisionFlags.Sides)
 			{
@@ -51,15 +61,18 @@ public class MoveCharacter : MonoBehaviour {
 					tempMove.y /= 1.5f;
 			}
 		}
-		// resets jump count when player lands
-		else if(curJumps != 1)
+
+		// runs OnLandAction once when player is grounded
+		if(cc.isGrounded && OnLandAction != null)
 		{
-			curJumps = 1;
-			// print("Jumps reset");
+			OnLandAction();
+			OnLandAction = null;
+			// print("reset gravity unassined");
 		}
 
 		// move character left and right
 		tempMove.x = _movement * speed;
+
 		cc.Move(tempMove * Time.deltaTime);
 		transform.position = new Vector3(transform.position.x, transform.position.y, 0);
 	}
@@ -76,5 +89,16 @@ public class MoveCharacter : MonoBehaviour {
 			// print("curJumps is " + curJumps);
 			tempMove.y = jumpPower;
 		}
+	}
+
+	void ResetGravity()
+	{
+			tempMove.y = -.1f;
+			print("gravity reset");
+	}
+	
+	void ResetJumps()
+	{
+		curJumps = 0;
 	}
 }

@@ -3563,7 +3563,7 @@ TextMesh:
   m_Text: 'Jump again in the air
 
     to double jump!'
-  m_OffsetZ: 0
+  m_OffsetZ: 10
   m_CharacterSize: 1
   m_LineSpacing: 1
   m_Anchor: 0
@@ -11726,7 +11726,7 @@ TextMesh:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 884136611}
   m_Text: Press Space To Jump!
-  m_OffsetZ: 0
+  m_OffsetZ: 10
   m_CharacterSize: 1
   m_LineSpacing: 1
   m_Anchor: 0
@@ -12091,7 +12091,7 @@ TextMesh:
     a wall and jump
 
     to wall jump!'
-  m_OffsetZ: 0
+  m_OffsetZ: 10
   m_CharacterSize: 1
   m_LineSpacing: 1
   m_Anchor: 0
@@ -17058,7 +17058,7 @@ Transform:
   m_LocalScale: {x: 0.95081, y: 7.6914225, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 36
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1737991548
 GameObject:
@@ -17958,7 +17958,7 @@ TextMesh:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1947465573}
   m_Text: Watch out for lava!
-  m_OffsetZ: 0
+  m_OffsetZ: 10
   m_CharacterSize: 1
   m_LineSpacing: 1
   m_Anchor: 0
@@ -18010,11 +18010,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1947465573}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.69, y: 21.96, z: 1.703125}
+  m_LocalPosition: {x: 13.69, y: 20.48, z: 1.703125}
   m_LocalScale: {x: 0.11788318, y: 0.11788317, z: 0.11788317}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 37
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1963365677
 GameObject:
