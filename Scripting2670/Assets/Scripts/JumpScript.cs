@@ -31,11 +31,11 @@ public class JumpScript : MonoBehaviour {
 			print("jumps reset");
 		}
 
-		if(Input.GetButtonDown("Jump") && cc.isGrounded && curJumps < jumpAmount + 1)
+		if(Input.GetButtonDown("Jump") && cc.isGrounded && curJumps < jumpAmount)
 		{
 			moveDirection.y = jumpSpeed;
 			curJumps++;
-			print("Jump!");
+			// print("Jump!");
 			print("curJumps is "+curJumps);
 		}
 		if(moveDirection.y > 0)

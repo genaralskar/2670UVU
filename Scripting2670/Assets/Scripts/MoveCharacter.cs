@@ -43,6 +43,7 @@ public class MoveCharacter : MonoBehaviour {
 				if(curJumps != 0)
 				{
 					curJumps = 0;
+					// print("Jumps reset");
 				}
 				// if moving downards on a wall, slow the player
 				// allows player to jump up agains walls, but slides down slower
@@ -51,14 +52,16 @@ public class MoveCharacter : MonoBehaviour {
 			}
 		}
 		// resets jump count when player lands
-		else if(curJumps != 0)
+		else if(curJumps != 1)
 		{
-			curJumps = 0;
+			curJumps = 1;
+			// print("Jumps reset");
 		}
 
 		// move character left and right
 		tempMove.x = _movement * speed;
 		cc.Move(tempMove * Time.deltaTime);
+		transform.position = new Vector3(transform.position.x, transform.position.y, 0);
 	}
 	
 	void Jump()
@@ -69,7 +72,8 @@ public class MoveCharacter : MonoBehaviour {
 		if(curJumps < jumpAmount && cc.collisionFlags != CollisionFlags.Sides)
 		{
 			curJumps++;
-			print("Jump");
+			// print("Jump");
+			// print("curJumps is " + curJumps);
 			tempMove.y = jumpPower;
 		}
 	}

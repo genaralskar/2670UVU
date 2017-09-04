@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Respawn : MonoBehaviour {
 
+	public Vector3 placeLocation;
+
 	void OnTriggerEnter(Collider other)
 	{
-		other.transform.root.position = new Vector3(0, 1, 0);
+		if(other.tag == "Player")
+			other.transform.root.position = placeLocation;
 	}
 
 }
