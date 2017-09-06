@@ -75,6 +75,8 @@ public class MoveCharacter : MonoBehaviour {
 			}
 		}
 
+		
+
 		// runs OnLandAction once when player is grounded
 		if(cc.isGrounded && OnLandAction != null)
 		{
@@ -87,7 +89,7 @@ public class MoveCharacter : MonoBehaviour {
 
 		// move character left and right
 		tempMove.x = _movement * speed;
-
+		
 		cc.Move(tempMove * Time.deltaTime);
 		transform.position = new Vector3(transform.position.x, transform.position.y, 0);
 	}

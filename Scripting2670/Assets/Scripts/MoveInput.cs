@@ -8,6 +8,7 @@ public class MoveInput : MonoBehaviour {
 	public static Action<float> KeyAction;
 	public static Action ConstantAction;
 	public static Action JumpAction;
+	public static Action ResetAction;
 
 	void Update () {
 		if(ConstantAction != null)
@@ -21,6 +22,14 @@ public class MoveInput : MonoBehaviour {
 		if(JumpAction != null && Input.GetButtonDown("Jump"))
 		{
 			JumpAction();
+		}
+	}
+
+	public void Reset()
+	{
+		if(ResetAction != null)
+		{
+			ResetAction();
 		}
 	}
 }
