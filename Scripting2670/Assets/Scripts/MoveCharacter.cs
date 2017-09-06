@@ -18,10 +18,15 @@ public class MoveCharacter : MonoBehaviour {
 
 	Action OnLandAction;
 
+	Vector3 prevPos;
+
+	public ParticleSystem doubleJumpPart;
+
 	// Use this for initialization
 	void Start () {
 		cc = GetComponent<CharacterController>();
 		StartButtonScript.Play += OnPlay;
+		prevPos = transform.position;
 	}
 
 	void OnPlay()
@@ -44,6 +49,12 @@ public class MoveCharacter : MonoBehaviour {
 				OnLandAction += ResetGravity;
 				OnLandAction += ResetJumps;
 				print("land action assigned");
+			}
+
+			// bonks player on ceiling
+			if(prevPos.y == transform.position.y)
+			{
+				tempMove.y = -.1f;
 			}
 			
 			if(cc.collisionFlags == CollisionFlags.Sides)
@@ -70,6 +81,8 @@ public class MoveCharacter : MonoBehaviour {
 			// print("reset gravity unassined");
 		}
 
+		prevPos = transform.position;
+
 		// move character left and right
 		tempMove.x = _movement * speed;
 
@@ -84,6 +97,13 @@ public class MoveCharacter : MonoBehaviour {
 		// player must move away from wall to jump again
 		if(curJumps < jumpAmount && cc.collisionFlags != CollisionFlags.Sides)
 		{
+			if(!cc.isGrounded)
+			{
+				// doubleJumpPart.Play();
+				ParticleSystem part;
+				part = Instantiate(doubleJumpPart, transform.position, Quaternion.identity);
+				Destroy(part, 2);
+			}
 			curJumps++;
 			// print("Jump");
 			// print("curJumps is " + curJumps);
@@ -93,7 +113,7 @@ public class MoveCharacter : MonoBehaviour {
 
 	void ResetGravity()
 	{
-			tempMove.y = -.1f;
+			tempMove.y = -1f;
 			print("gravity reset");
 	}
 	

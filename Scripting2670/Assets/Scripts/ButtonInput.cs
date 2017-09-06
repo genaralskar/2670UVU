@@ -13,7 +13,7 @@ public class ButtonInput : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider other)
 	{
-		if(other.tag == "Player")
+		if(other.tag == "Player" || other.tag == "Trigger")
 		{
 			MoveInput.ConstantAction += MoveObject;
 			print("player enter trigger");
