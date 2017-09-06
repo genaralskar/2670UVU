@@ -10,7 +10,8 @@ public class FlipCharacter : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		StartButtonScript.Play += OnPlay;
+		// StartButtonScript.Play += OnPlay;
+		MoveInput.KeyAction += Flip;
 	}
 
 	void OnPlay()

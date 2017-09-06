@@ -25,7 +25,9 @@ public class MoveCharacter : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		cc = GetComponent<CharacterController>();
-		StartButtonScript.Play += OnPlay;
+		// StartButtonScript.Play += OnPlay;
+		MoveInput.KeyAction += Move;
+		MoveInput.JumpAction += Jump;
 		prevPos = transform.position;
 	}
 
