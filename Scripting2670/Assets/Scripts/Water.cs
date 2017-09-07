@@ -13,9 +13,10 @@ public class Water : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-		if(other.tag == "Player")
+		character = other.gameObject.GetComponent<MoveCharacter>();
+		if(other.tag == "Player" && character != null)
 		{
-			character = other.gameObject.GetComponent<MoveCharacter>();
+			
 		
 			character.gravity = waterGravity;
 			character.jumpAmount = waterJumps;
@@ -24,9 +25,10 @@ public class Water : MonoBehaviour {
 
 	void OnTriggerExit(Collider other)
 	{
-		if(other.tag == "Player")
+		character = other.gameObject.GetComponent<MoveCharacter>();
+		if(other.tag == "Player" && character != null)
 		{
-			character = other.gameObject.GetComponent<MoveCharacter>();
+			
 
 			character.gravity = baseGravity;
 			character.jumpAmount = baseJumps;
