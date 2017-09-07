@@ -121,7 +121,7 @@ public class MoveCharacter : MonoBehaviour {
 			print("gravity reset");
 	}
 	
-	void ResetJumps()
+	public void ResetJumps()
 	{
 		curJumps = 0;
 	}
