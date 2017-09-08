@@ -46,7 +46,6 @@ public class MoveCharacter : MonoBehaviour {
 		// print("moving!");
 		if(!cc.isGrounded)
 		{
-<<<<<<< Updated upstream
 			// gravity
 			// when player is slower than maxFallSpeed;
 			if(tempMove.y > maxFallSpeed)
@@ -106,18 +105,6 @@ public class MoveCharacter : MonoBehaviour {
 			OnLandAction = null;
 			print("OnLandAction");
 		}
-=======
-			tempMove.y -= gravity * Time.deltaTime;
-			print(tempMove.y);
-		}
-
-		tempMove.x = _movement * speed;
-		cc.Move(tempMove * Time.deltaTime);
-	}
-	
-	void Jump()
-	{
->>>>>>> Stashed changes
 		if(cc.isGrounded)
 		{
 			// print("Grounded");
