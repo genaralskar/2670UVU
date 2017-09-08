@@ -13,12 +13,16 @@ public class LogRespawn : MonoBehaviour {
 	{
 		if(other.tag == "log")
 		{
+			if(other.transform.childCount > 1)
+			{
+				other.transform.GetChild(1).parent = null;
+			}
 			// print("log!");
 			other.transform.position = new Vector3(logRespawn.transform.position.x + Random.Range(rand1, rand2), logRespawn.transform.position.y, 0);
 		}
-		if(other.tag == "Player")
-		{
-			other.transform.root.position = playerRespawn;
-		}
+		// if(other.tag == "Player")
+		// {
+		// 	other.transform.root.position = playerRespawn;
+		// }
 	}
 }
