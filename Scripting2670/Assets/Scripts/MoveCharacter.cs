@@ -7,7 +7,6 @@ using System;
 
 public class MoveCharacter : MonoBehaviour {
 
-
 	CharacterController cc;
 	Vector3 tempMove;
 	public float speed = 5;
@@ -141,7 +140,7 @@ public class MoveCharacter : MonoBehaviour {
 				// doubleJumpPart.Play();
 				ParticleSystem part;
 				part = Instantiate(doubleJumpPart, transform.position, Quaternion.identity);
-				Destroy(part, 2);
+				// Destroy(part, 2);
 			}
 			curJumps++;
 			print("curJumps = " + curJumps);
