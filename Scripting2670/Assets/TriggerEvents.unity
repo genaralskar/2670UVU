@@ -18420,7 +18420,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1379978357
 Transform:
   m_ObjectHideFlags: 0
@@ -22681,6 +22681,8 @@ GameObject:
   - component: {fileID: 1519307285}
   - component: {fileID: 1519307289}
   - component: {fileID: 1519307290}
+  - component: {fileID: 1519307292}
+  - component: {fileID: 1519307291}
   m_Layer: 12
   m_Name: platform
   m_TagString: Untagged
@@ -22782,6 +22784,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &1519307291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1519307284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bf46e83a059ea94986440ff32a01140, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1519307292
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1519307284}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.93, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.38, z: 0}
 --- !u!4 &1521548738 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4893305768585176, guid: 9ad9d5077eeefad48a079ed8475fb932,
