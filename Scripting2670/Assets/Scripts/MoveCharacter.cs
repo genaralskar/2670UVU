@@ -17,6 +17,8 @@ public class MoveCharacter : MonoBehaviour {
 	public int jumpAmount = 2;
 	public int curJumps;
 
+	bool gravityOn = false;
+
 	public int waterCount; // used for water stuff;
 
 	Action OnLandAction;
@@ -31,6 +33,10 @@ public class MoveCharacter : MonoBehaviour {
 		// StartButtonScript.Play += OnPlay;
 		MoveInput.KeyAction += Move;
 		MoveInput.JumpAction += Jump;
+
+		OnLandAction += ResetGravity;
+		OnLandAction += ResetJumps;
+
 		prevPos = transform.position;
 	}
 
@@ -45,40 +51,45 @@ public class MoveCharacter : MonoBehaviour {
 		// print("moving!");
 		if(!cc.isGrounded)
 		{
+
+			if(!gravityOn)
+			{
+				StartCoroutine(Gravity());
+			}
 			// gravity
 			// when player is slower than maxFallSpeed;
-			if(tempMove.y > maxFallSpeed)
-			{
-				tempMove.y -= gravity * Time.deltaTime;
-				curFallSpeed = tempMove.y;
-			}
+			// if(tempMove.y > maxFallSpeed)
+			// {
+			// 	//tempMove.y -= gravity * Time.deltaTime;
+			// 	curFallSpeed = tempMove.y;
+			// }
 
-			// when player if faster than maxFallSpeed;
-			if(tempMove.y < maxFallSpeed && tempMove.y > maxFallSpeed -.05f) // if fall speed is close enough, just sets it there
-			{
-				//tempMove.y = maxFallSpeed;
-				//LerpFall();
-				tempMove.y = maxFallSpeed;
-				curFallSpeed = tempMove.y;
-			}
-			else if(tempMove.y < maxFallSpeed -.05f) // otherwise if still faster, lerp it
-			{
-				LerpFall();
-			}
+			// // when player if faster than maxFallSpeed;
+			// if(tempMove.y < maxFallSpeed && tempMove.y > maxFallSpeed -.05f) // if fall speed is close enough, just sets it there
+			// {
+			// 	//tempMove.y = maxFallSpeed;
+			// 	//LerpFall();
+			// 	tempMove.y = maxFallSpeed;
+			// 	curFallSpeed = tempMove.y;
+			// }
+			// else if(tempMove.y < maxFallSpeed -.05f) // otherwise if still faster, lerp it
+			// {
+			// 	LerpFall();
+			// }
 
 			// one time action to be performed when the character lands
-			if(OnLandAction == null)
-			{
-				OnLandAction += ResetGravity;
-				OnLandAction += ResetJumps;
-				// print("land action assigned");
-			}
+			// if(OnLandAction == null)
+			// {
+			// 	OnLandAction += ResetGravity;
+			// 	OnLandAction += ResetJumps;
+			// 	// print("land action assigned");
+			// }
 
 			// bonks player on ceiling
-			if(prevPos.y == transform.position.y)
-			{
-				tempMove.y = -.1f;
-			}
+			// if(prevPos.y == transform.position.y)
+			// {
+			// 	tempMove.y = -.1f;
+			// }
 			
 			if(cc.collisionFlags == CollisionFlags.Sides)
 			{
@@ -98,23 +109,24 @@ public class MoveCharacter : MonoBehaviour {
 
 
 		// runs OnLandAction once when player is grounded
-		if(cc.isGrounded && OnLandAction != null)
-		{
-			OnLandAction();
-			OnLandAction = null;
-			print("OnLandAction");
-		}
-		if(cc.isGrounded)
-		{
-			// print("Grounded");
-		}
+		// if(cc.isGrounded && OnLandAction != null)
+		// {
+		// 	OnLandAction();
+		// 	OnLandAction = null;
+		// 	print("OnLandAction");
+		// }
+		
 
 		prevPos = transform.position;
+
 
 		// move character left and right
 		tempMove.x = _movement * speed;
 		
 		cc.Move(tempMove * Time.deltaTime);
+
+
+
 		transform.position = new Vector3(transform.position.x, transform.position.y, 0);
 	}
 	
@@ -135,6 +147,10 @@ public class MoveCharacter : MonoBehaviour {
 		// player must move away from wall to jump again
 		if(curJumps < jumpAmount && cc.collisionFlags != CollisionFlags.Sides)
 		{
+			if(cc.isGrounded)
+			{
+				StartCoroutine(Gravity());
+			}
 			if(!cc.isGrounded)
 			{
 				// doubleJumpPart.Play();
@@ -154,7 +170,7 @@ public class MoveCharacter : MonoBehaviour {
 	void ResetGravity()
 	{
 			tempMove.y = -1f;
-			// print("gravity reset");
+		//	print("gravity reset");
 	}
 	
 	public void ResetJumps()
@@ -166,5 +182,50 @@ public class MoveCharacter : MonoBehaviour {
 	{
 		tempMove.y = Mathf.Lerp(tempMove.y, maxFallSpeed, 10 * Time.deltaTime);
 		// print("tempMove.y = " + tempMove.y);
+	}
+
+	// this happens when player is not grounded
+	IEnumerator Gravity()
+	{
+		gravityOn = true;
+		print("gravity!");
+		yield return new WaitForSeconds(.01f);
+		do
+		{
+		//	print("gravity");
+			tempMove.y -= gravity * Time.deltaTime;
+			yield return new WaitForSeconds(.01f);
+
+			if(tempMove.y > maxFallSpeed)
+			{
+				//tempMove.y -= gravity * Time.deltaTime;
+				curFallSpeed = tempMove.y;
+			}
+
+			// when player if faster than maxFallSpeed;
+			if(tempMove.y < maxFallSpeed && tempMove.y > maxFallSpeed -.05f) // if fall speed is close enough, just sets it there
+			{
+				//tempMove.y = maxFallSpeed;
+				//LerpFall();
+				tempMove.y = maxFallSpeed;
+				curFallSpeed = tempMove.y;
+			}
+			else if(tempMove.y < maxFallSpeed -.05f) // otherwise if still faster, lerp it
+			{
+				LerpFall();
+			}
+
+			// bonks player
+			if(prevPos.y == transform.position.y)
+			{
+				tempMove.y = -.1f;
+			}
+
+		} while(!cc.isGrounded);
+
+		
+		print("Landed yo!");
+		gravityOn = false;
+		OnLandAction();
 	}
 }

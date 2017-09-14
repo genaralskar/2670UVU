@@ -8,7 +8,7 @@ public class PlatformParenter : MonoBehaviour {
 	{
 		if(other.tag == "Player")
 		{
-			other.transform.root.parent = transform.parent;
+			other.transform.root.parent = gameObject.transform;
 		}
 	}
 
