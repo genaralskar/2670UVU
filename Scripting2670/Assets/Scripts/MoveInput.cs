@@ -22,7 +22,7 @@ public class MoveInput : MonoBehaviour {
 		StartCoroutine(Move());
 	}
 
-	IEnumerator Move () {
+	public IEnumerator Move () {
 		while(canRun)
 		{
 			if(ConstantAction != null)
@@ -47,6 +47,11 @@ public class MoveInput : MonoBehaviour {
 			}
 			yield return new WaitForSeconds(runTime);
 		}
+		while(!canRun)
+		{
+			yield return new WaitForSeconds(runTime);
+		}
+		StartCoroutine(Move());
 	}
 
 	public void Reset()
