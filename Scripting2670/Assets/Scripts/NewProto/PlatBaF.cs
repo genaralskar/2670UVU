@@ -41,7 +41,7 @@ public class PlatBaF : MonoBehaviour {
 		StopCoroutine(Move());
 		while(transform.position != startPoint)
 		{
-			transform.position = Vector3.MoveTowards(transform.position, startPoint, speed);
+			transform.position = Vector3.MoveTowards(transform.position, startPoint, speed * Time.deltaTime);
 			yield return null;
 		}
 	}

@@ -9,7 +9,9 @@ public class MoveCharacter : MonoBehaviour {
 
 	CharacterController cc;
 	Vector3 tempMove;
+
 	public float speed = 5;
+	private float tempSpeed;
 	public float gravity = 20f;
 	public float maxFallSpeed = -30;
 	public float curFallSpeed;
@@ -47,7 +49,20 @@ public class MoveCharacter : MonoBehaviour {
 		MoveInput.KeyAction += Move;
 		MoveInput.JumpAction += Jump;
 		StartButtonScript.Play -= OnPlay;
-	}	
+	}
+
+	public void DeathStart()
+	{
+		MoveInput.JumpAction -= Jump;
+		tempSpeed = speed;
+		speed = 0;
+	}
+
+	public void DeathStop()
+	{
+		MoveInput.JumpAction += Jump;
+		speed = tempSpeed;
+	}
 	public void Move(float _movement)
 	{
 		// print("moving!");
@@ -163,7 +178,6 @@ public class MoveCharacter : MonoBehaviour {
 		do
 		{
 		//	print("gravity");
-			tempMove.y -= gravity * Time.deltaTime;
 		//	print(tempMove.y);
 			//yield return new WaitForSeconds(.01f);
 
@@ -171,6 +185,7 @@ public class MoveCharacter : MonoBehaviour {
 			{
 				//tempMove.y -= gravity * Time.deltaTime;
 				curFallSpeed = tempMove.y;
+				tempMove.y -= gravity * Time.deltaTime;
 			}
 
 			// when player if faster than maxFallSpeed;
