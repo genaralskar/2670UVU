@@ -110,8 +110,8 @@ public class MoveCharacter : MonoBehaviour {
 		cc.Move(tempMove * Time.deltaTime);
 
 
-
-		transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+		if(transform.position.z != 0)
+			transform.position = new Vector3(transform.position.x, transform.position.y, 0);
 	}
 	
 

@@ -8,6 +8,7 @@ TagManager:
   - Trigger
   - CharacterControl
   - Log
+  - Box
   layers:
   - Default
   - TransparentFX
