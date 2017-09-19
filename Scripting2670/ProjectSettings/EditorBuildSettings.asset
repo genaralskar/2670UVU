@@ -5,8 +5,8 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/TriggerEvents.unity
+  - enabled: 0
+    path: Assets/Scenes/TriggerEvents.unity
     guid: f62aa3fbba2e0264c8217e9f010a8dd4
   - enabled: 0
     path: Assets/LoadSceneStuff/Game.unity
@@ -17,3 +17,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/LoadSceneStuff/Two.unity
     guid: 57c168344af6f224486c0ec0af64261f
+  - enabled: 1
+    path: Assets/Scenes/LayoutProtype.unity
+    guid: 5f96fc8fe99c8e84aa945a8c8254703a

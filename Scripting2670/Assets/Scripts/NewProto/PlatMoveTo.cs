@@ -8,6 +8,7 @@ public class PlatMoveTo : MonoBehaviour {
 	Vector3 origin;
 	public Vector3 endPoint;
 	public float speed;
+	public float startDelay;
 	public bool moveAtStart = false;
 
 	// Use this for initialization
@@ -23,7 +24,7 @@ public class PlatMoveTo : MonoBehaviour {
 	{
 		StopAllCoroutines();
 		StartCoroutine(Move());
-		print("start!");
+	//	print("start!");
 	}
 
 	public void ReturnMove()
@@ -39,21 +40,22 @@ public class PlatMoveTo : MonoBehaviour {
 
 	public IEnumerator Move ()
 	{
-		print("loop!");
+	//	print("loop!");
+		yield return new WaitForSeconds(startDelay);
 		while(transform.position != endPoint)
 		{
 			transform.position = Vector3.MoveTowards(transform.position, endPoint, speed * Time.deltaTime);
-			print("gogoggo");
+		//	print("gogoggo");
 			yield return null;
 		}
 	}
 
 	public IEnumerator ReturnToStart()
 	{
-		print("return to start");
+	//	print("return to start");
 		while(transform.position != origin)
 		{
-			print("moving");
+		//	print("moving");
 			transform.position = Vector3.MoveTowards(transform.position, origin, speed * Time.deltaTime);
 		//	print("gogoggo");
 			yield return null;

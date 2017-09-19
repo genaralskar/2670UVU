@@ -9,7 +9,6 @@ public class Shake : MonoBehaviour {
 
 	public float rangeMin;
 	public float rangeMax;
-	public float shakeTime;
 	public float shakeRate = 0.01f;
 
 	public static Action CameraShakeAction;
@@ -40,20 +39,17 @@ public class Shake : MonoBehaviour {
 	void StopShake()
 	{
 		StopAllCoroutines();
+		transform.localPosition = origin;
 	}
 
 	IEnumerator ShakeIt()
 	{
-		float time = 0;
-		while(time < shakeTime)
+		
+		while(true)
 		{
-			time ++;
-			print("Time is " + time);
 			transform.localPosition = new Vector3(origin.x + UnityEngine.Random.Range(rangeMin, rangeMax), origin.y + UnityEngine.Random.Range(rangeMin, rangeMax), origin.z + UnityEngine.Random.Range(rangeMin, rangeMax));
 			yield return new WaitForSeconds(shakeRate);
 		}
-		//StartCoroutine(ReturnToOrigin());
-		transform.localPosition = origin;
 	}
 
 	IEnumerator ReturnToOrigin()

@@ -143,18 +143,18 @@ public class MoveCharacter : MonoBehaviour {
 				// Destroy(part, 2);
 			}
 			curJumps++;
-			print("curJumps = " + curJumps);
+		//	print("curJumps = " + curJumps);
 			// print("Jump");
 			// print("curJumps is " + curJumps);
 			tempMove.y = jumpPower;
-			print("jump!");
+		//	print("jump!");
 		}
 	}
 
 	void ResetGravity()
 	{
 			tempMove.y = -1f;
-			print("gravity reset");
+	//		print("gravity reset");
 	}
 	
 	public void ResetJumps()
@@ -165,7 +165,7 @@ public class MoveCharacter : MonoBehaviour {
 	void LerpFall()
 	{
 		tempMove.y = Mathf.Lerp(tempMove.y, maxFallSpeed, 10 * Time.deltaTime);
-		print("lerp");
+	//	print("lerp");
 		// print("tempMove.y = " + tempMove.y);
 	}
 
@@ -173,7 +173,7 @@ public class MoveCharacter : MonoBehaviour {
 	IEnumerator Gravity()
 	{
 		gravityOn = true;
-		print("gravity!");
+	//	print("gravity!");
 		yield return new WaitForSeconds(.01f);
 		do
 		{
@@ -214,7 +214,7 @@ public class MoveCharacter : MonoBehaviour {
 		} while(!cc.isGrounded);
 
 		
-		print("Landed yo!");
+	//	print("Landed yo!");
 		gravityOn = false;
 		OnLandAction();
 	}

@@ -7,6 +7,7 @@ public class MoveButtonOnTrigger : MonoBehaviour {
 	Vector3 origin;
 	public Vector3 endLoc;
 	public float speed;
+	public float startDelay;
 	public string tagCheck;
 
 	void Start()
@@ -34,6 +35,7 @@ public class MoveButtonOnTrigger : MonoBehaviour {
 
 	IEnumerator MoveToEnd()
 	{
+		yield return new WaitForSeconds(startDelay);
 		while(transform.position != endLoc)
 		{
 			transform.position = Vector3.MoveTowards(transform.position, endLoc, speed * Time.deltaTime);
