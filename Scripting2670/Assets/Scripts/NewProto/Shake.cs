@@ -13,23 +13,33 @@ public class Shake : MonoBehaviour {
 	public float shakeRate = 0.01f;
 
 	public static Action CameraShakeAction;
-
+	public static Action StopCameraShakeAction;
 	
 	void Start()
 	{
 			origin = transform.localPosition;
 			//StartCoroutine(ShakeIt());
 			CameraShakeAction += StartShake;
+			StopCameraShakeAction += StopShake;
 	}
 	
 	public static void StartCameraShake()
 	{
 		CameraShakeAction();
 	}
+	public static void StopCameraShake()
+	{
+		StopCameraShakeAction();
+	}
 
 	void StartShake()
 	{
 		StartCoroutine(ShakeIt());
+	}
+	
+	void StopShake()
+	{
+		StopAllCoroutines();
 	}
 
 	IEnumerator ShakeIt()

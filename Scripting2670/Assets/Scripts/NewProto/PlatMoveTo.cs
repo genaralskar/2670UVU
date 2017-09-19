@@ -21,8 +21,15 @@ public class PlatMoveTo : MonoBehaviour {
 
 	public void StartMove()
 	{
+		StopAllCoroutines();
 		StartCoroutine(Move());
 		print("start!");
+	}
+
+	public void ReturnMove()
+	{
+		StopAllCoroutines();
+		StartCoroutine(ReturnToStart());
 	}
 
 	public void EndMove()
@@ -30,12 +37,25 @@ public class PlatMoveTo : MonoBehaviour {
 		StopAllCoroutines();
 	}
 
-	IEnumerator Move ()
+	public IEnumerator Move ()
 	{
 		print("loop!");
 		while(transform.position != endPoint)
 		{
 			transform.position = Vector3.MoveTowards(transform.position, endPoint, speed * Time.deltaTime);
+			print("gogoggo");
+			yield return null;
+		}
+	}
+
+	public IEnumerator ReturnToStart()
+	{
+		print("return to start");
+		while(transform.position != origin)
+		{
+			print("moving");
+			transform.position = Vector3.MoveTowards(transform.position, origin, speed * Time.deltaTime);
+		//	print("gogoggo");
 			yield return null;
 		}
 	}
