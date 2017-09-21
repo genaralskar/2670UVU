@@ -7,6 +7,9 @@ public class PlatBaF : MonoBehaviour {
 	Vector3 startPoint;
 	public Vector3 endPoint;
 	public float speed;
+	public float startLoopDelay = 0;
+	public float startPointDelay = 0;
+	public float endPointDelay = 0;
 	public bool moveAtStart = false;
 
 	void Start()
@@ -14,18 +17,26 @@ public class PlatBaF : MonoBehaviour {
 		startPoint = transform.position;
 		if(moveAtStart)
 		{
-			StartCoroutine(Move());
+			StartCoroutine(StartMoveDelay());
 		}
+	}
+
+	IEnumerator StartMoveDelay()
+	{
+		yield return new WaitForSeconds(startLoopDelay);
+		StartCoroutine(Move());
 	}
 
 	public IEnumerator Move()
 	{
+		yield return new WaitForSeconds(startPointDelay);
 		while(transform.position != endPoint)
 		{
 			transform.position = Vector3.MoveTowards(transform.position, endPoint, speed * Time.deltaTime);
 
 			yield return null;
 		}
+		yield return new WaitForSeconds(endPointDelay);
 		while(transform.position != startPoint)
 		{
 			transform.position = Vector3.MoveTowards(transform.position, startPoint, speed * Time.deltaTime);

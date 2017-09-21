@@ -6,7 +6,8 @@ using UnityEngine;
 public class FlipCharacter : MonoBehaviour {
 
 	Quaternion myQuat;
-	public Vector3 rotValue;
+	Vector3 rotValue;
+	public float rotateAmount = 180;
 
 	// Use this for initialization
 	void Start () {
@@ -24,8 +25,8 @@ public class FlipCharacter : MonoBehaviour {
     {
 		if(obj > 0 && rotValue.y != 0)
 			rotValue.y = 0;
-		else if(obj < 0 && rotValue.y != 180)
-			rotValue.y = 180;
+		else if(obj < 0 && rotValue.y != rotateAmount)
+			rotValue.y = rotateAmount;
 
 		myQuat.eulerAngles = rotValue;
 		transform.rotation = myQuat;

@@ -15,6 +15,8 @@ public class MoveInput : MonoBehaviour {
 	public static Action ConstantAction;
 	public static Action JumpAction;
 	public static Action ResetAction;
+	public static Action StartGrabAction;
+	public static Action EndGrabAction;
 
 
 	void Start()
@@ -44,6 +46,14 @@ public class MoveInput : MonoBehaviour {
 			if(JumpAction != null && Input.GetButtonDown("Jump"))
 			{
 				JumpAction();
+			}
+			if(StartGrabAction != null)
+			{
+				
+			}
+			if(EndGrabAction != null)
+			{
+
 			}
 			yield return new WaitForSeconds(runTime);
 		}
