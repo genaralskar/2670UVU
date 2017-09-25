@@ -17,6 +17,8 @@ public class MoveInput : MonoBehaviour {
 	public static Action ResetAction;
 	public static Action StartGrabAction;
 	public static Action EndGrabAction;
+	public static Action CrouchAction;
+	public static Action EndCrouchAction;
 
 
 	void Start()
@@ -47,13 +49,13 @@ public class MoveInput : MonoBehaviour {
 			{
 				JumpAction();
 			}
-			if(StartGrabAction != null)
+			if(CrouchAction != null && Input.GetButtonDown("Crouch"))
 			{
-				
+				CrouchAction();
 			}
-			if(EndGrabAction != null)
+			if(CrouchAction != null && Input.GetButtonUp("Crouch"))
 			{
-
+				EndCrouchAction();
 			}
 			yield return new WaitForSeconds(runTime);
 		}
