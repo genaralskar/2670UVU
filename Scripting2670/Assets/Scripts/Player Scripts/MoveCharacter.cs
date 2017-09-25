@@ -61,6 +61,7 @@ public class MoveCharacter : MonoBehaviour {
 	public void DeathStop()
 	{
 		MoveInput.JumpAction += Jump;
+		MoveInput.KeyAction += Move;
 		speed = tempSpeed;
 	}
 	public void Move(float _movement)
@@ -214,7 +215,7 @@ public class MoveCharacter : MonoBehaviour {
 		} while(!cc.isGrounded);
 
 		
-	//	print("Landed yo!");
+		print("Hasselhoff strikes again!");
 		gravityOn = false;
 		OnLandAction();
 	}

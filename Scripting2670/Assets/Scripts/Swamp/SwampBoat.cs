@@ -6,6 +6,12 @@ public class SwampBoat : MonoBehaviour {
 
 	public float speed = 1;
 	public bool boatMoving;
+	Vector3 origin;
+
+	void Start()
+	{
+		RespawnPlayer.RespawnAction += RespawnHandler;
+	}
 
 	void OnTriggerEnter(Collider other)
 	{
@@ -23,5 +29,11 @@ public class SwampBoat : MonoBehaviour {
 			transform.Translate(Vector3.right * speed);
 			yield return null;
 		}
+	}
+
+	void RespawnHandler()
+	{
+		boatMoving = false;
+		StopAllCoroutines();
 	}
 }
