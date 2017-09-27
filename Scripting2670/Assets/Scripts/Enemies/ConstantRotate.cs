@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class ConstantRotate : MonoBehaviour {
 
-	public float speed;
 	public Vector3 rotate;
+	public Vector3 offset;
 	Vector3 rotVal;
 
 	void Start () {
+		rotVal += offset;
 		StartCoroutine(Move());
 	}
 	

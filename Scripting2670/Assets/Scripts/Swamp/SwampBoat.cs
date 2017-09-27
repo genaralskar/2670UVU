@@ -6,6 +6,7 @@ public class SwampBoat : MonoBehaviour {
 
 	public float speed = 1;
 	public bool boatMoving;
+	public Vector3 endPoint;
 	Vector3 origin;
 
 	void Start()
@@ -24,7 +25,7 @@ public class SwampBoat : MonoBehaviour {
 	IEnumerator Move()
 	{
 		boatMoving = true;
-		while(boatMoving)
+		while(transform.position.x < endPoint.x)
 		{
 			transform.Translate(Vector3.right * speed);
 			yield return null;

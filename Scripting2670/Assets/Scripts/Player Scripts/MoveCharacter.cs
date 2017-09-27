@@ -61,7 +61,7 @@ public class MoveCharacter : MonoBehaviour {
 	public void DeathStop()
 	{
 		MoveInput.JumpAction += Jump;
-		MoveInput.KeyAction += Move;
+	//	MoveInput.KeyAction += Move;
 		speed = tempSpeed;
 	}
 	public void Move(float _movement)

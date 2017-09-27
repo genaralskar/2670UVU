@@ -9,13 +9,15 @@ public class RespawnPlayer : MonoBehaviour {
 	public GameObject respawnPoint;
 	Vector3 offset;
 	bool respawning = false;
+	public bool lights = false;
+	public ChangeLighting changeLight;
 
 	public static Action RespawnAction;
 
 	public void Respawn()
 	{
-		if(!respawning)
-			StartCoroutine(DeathWait());
+		 if(!respawning)
+		 	StartCoroutine(DeathWait());
 	}
 
 	void ChangePos ()
@@ -31,11 +33,15 @@ public class RespawnPlayer : MonoBehaviour {
 		mainCamera.transform.parent = null;
 		GetComponent<MoveCharacter>().DeathStart();
 		yield return new WaitForSeconds(2);
-		ChangePos();
-		GetComponent<MoveCharacter>().DeathStop();
 		if(transform.parent != null)
 		{
 			transform.parent = null;
+		}
+		ChangePos();
+		GetComponent<MoveCharacter>().DeathStop();
+		if(lights)
+		{
+			changeLight.ResetLights();
 		}
 		if(RespawnAction != null)
 		{

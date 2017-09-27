@@ -9,6 +9,7 @@ TagManager:
   - CharacterControl
   - Log
   - Box
+  - Enemy
   layers:
   - Default
   - TransparentFX

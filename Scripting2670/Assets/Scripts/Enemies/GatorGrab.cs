@@ -9,6 +9,7 @@ public class GatorGrab : MonoBehaviour {
 		if(other.tag == "Player")
 		{
 			other.transform.parent = transform.root;
+			other.GetComponent<GrabDeath>().DeathStart();
 		}
 	}
 }

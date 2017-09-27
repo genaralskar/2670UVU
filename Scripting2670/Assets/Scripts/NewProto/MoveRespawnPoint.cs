@@ -5,6 +5,7 @@ using UnityEngine;
 public class MoveRespawnPoint : MonoBehaviour {
 
 	public GameObject resPoint;
+	public bool resetLights;
 
 	void OnTriggerEnter(Collider other)
 	{
@@ -12,7 +13,9 @@ public class MoveRespawnPoint : MonoBehaviour {
 		{
 			RespawnPlayer rp = other.GetComponent<RespawnPlayer>();
 			if(rp.respawnPoint.transform.position != transform.position)
+				rp.lights = resetLights;
 				rp.respawnPoint.transform.position = transform.position;
+			
 		}
 	}
 }
