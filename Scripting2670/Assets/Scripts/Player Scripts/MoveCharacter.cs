@@ -115,6 +115,20 @@ public class MoveCharacter : MonoBehaviour {
 			transform.position = new Vector3(transform.position.x, transform.position.y, 0);
 	}
 	
+	public void ClimbStart()
+	{
+		MoveInput.KeyAction -= Move;
+		MoveInput.HorzVertAction += ClimbMove;
+		MoveInput.JumpAction -= Jump;
+		StopAllCoroutines();
+	}
+
+	public void ClimbEnd()
+	{
+		MoveInput.KeyAction += Move;
+		MoveInput.HorzVertAction -= ClimbMove;
+		MoveInput.JumpAction += Jump;
+	}
 
 	public void ClimbMove(float _horzMove, float _vertMove)
 	{
