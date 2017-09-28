@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerClimb : MonoBehaviour {
 
 	Collider coll;
+	GameObject player;
+	public int stateCheck = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -15,23 +17,36 @@ public class PlayerClimb : MonoBehaviour {
 
 	void ClimbActionHandler()
 	{
-		coll.enabled = true;
+		if(player != null && stateCheck < 1)
+		{
+		//	coll.enabled = true;
+		player.GetComponent<MoveCharacter>().ClimbStart();
+		stateCheck++;
+		}
 	}
 
 	void EndOnJump()
 	{
-		coll.enabled = false;
+	//	coll.enabled = false;
+		if(player != null && stateCheck > 0)
+		{
+			player.GetComponent<MoveCharacter>().ClimbEnd();
+			stateCheck--;
+		}
 	}
 
 	void OnTriggerEnter(Collider other)
 	{
-		other.GetComponent<MoveCharacter>().ClimbStart();
+		player = other.gameObject;
+		
 	}
 
 	void OnTriggerExit(Collider other)
 	{
-		other.GetComponent<MoveCharacter>().ClimbEnd();
+		
+	//	other.GetComponent<MoveCharacter>().ClimbEnd();
 		EndOnJump();
+		player = null;
 	}
 	
 }

@@ -66,6 +66,7 @@ public class MoveCharacter : MonoBehaviour {
 	}
 	public void Move(float _movement)
 	{
+	//	print(cc.isGrounded);
 		// print("moving!");
 		if(!cc.isGrounded)
 		{
@@ -118,9 +119,10 @@ public class MoveCharacter : MonoBehaviour {
 	public void ClimbStart()
 	{
 		MoveInput.KeyAction -= Move;
+		gravityOn = false;
 		MoveInput.HorzVertAction += ClimbMove;
 		MoveInput.JumpAction -= Jump;
-		StopAllCoroutines();
+	//	StopAllCoroutines();
 	}
 
 	public void ClimbEnd()
@@ -226,7 +228,7 @@ public class MoveCharacter : MonoBehaviour {
 
 			
 
-		} while(!cc.isGrounded);
+		} while(!cc.isGrounded && gravityOn);
 
 		
 		print("Hasselhoff strikes again!");
