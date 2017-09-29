@@ -15,4 +15,10 @@ public class PedColorOpenDoor : MonoBehaviour {
 			door.StartMove();
 		}
 	}
+
+	public void AddCount(int _count)
+	{
+		count += _count;
+		CheckCount();
+	}
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Item : MonoBehaviour {
 
 	public string name;
-	public enum color{RED, BLUE, GREEN}
+	public string color;
 
 
 	

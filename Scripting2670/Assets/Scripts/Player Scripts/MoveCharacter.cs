@@ -24,12 +24,14 @@ public class MoveCharacter : MonoBehaviour {
 	bool gravityOn = false;
 
 	public int waterCount; // used for water stuff;
+	public int ladderCount;
+	public bool isClimbing = false;
 
 	Action OnLandAction;
 
-	Vector3 prevPos;
 
 	public ParticleSystem doubleJumpPart;
+	public float zPos = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -40,8 +42,6 @@ public class MoveCharacter : MonoBehaviour {
 
 		OnLandAction += ResetGravity;
 		OnLandAction += ResetJumps;
-
-		prevPos = transform.position;
 	}
 
 	void OnPlay()
@@ -103,7 +103,6 @@ public class MoveCharacter : MonoBehaviour {
 		// }
 		
 
-		prevPos = transform.position;
 
 
 		// move character left and right
@@ -112,8 +111,8 @@ public class MoveCharacter : MonoBehaviour {
 		cc.Move(tempMove * Time.deltaTime);
 
 
-		if(transform.position.z != 0)
-			transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+		if(transform.position.z != zPos)
+			transform.position = new Vector3(transform.position.x, transform.position.y, zPos);
 	}
 	
 	public void ClimbStart()
@@ -122,14 +121,19 @@ public class MoveCharacter : MonoBehaviour {
 		gravityOn = false;
 		MoveInput.HorzVertAction += ClimbMove;
 		MoveInput.JumpAction -= Jump;
+		isClimbing = true;
 	//	StopAllCoroutines();
 	}
 
 	public void ClimbEnd()
 	{
-		MoveInput.KeyAction += Move;
-		MoveInput.HorzVertAction -= ClimbMove;
-		MoveInput.JumpAction += Jump;
+		if(isClimbing)
+		{
+			MoveInput.KeyAction += Move;
+			MoveInput.HorzVertAction -= ClimbMove;
+			MoveInput.JumpAction += Jump;
+			isClimbing = false;
+		}
 	}
 
 	public void ClimbMove(float _horzMove, float _vertMove)
@@ -221,7 +225,7 @@ public class MoveCharacter : MonoBehaviour {
 			yield return new WaitForSeconds(.01f);
 
 			// bonks player
-			if(prevPos.y == transform.position.y)
+			if((cc.collisionFlags & CollisionFlags.Above) != 0 && tempMove.y > 0)
 			{
 				tempMove.y = -.1f;
 			}

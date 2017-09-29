@@ -4,49 +4,44 @@ using UnityEngine;
 
 public class PlayerClimb : MonoBehaviour {
 
-	Collider coll;
-	GameObject player;
-	public int stateCheck = 0;
+	MoveCharacter player;
 
 	// Use this for initialization
 	void Start () {
 		MoveInput.ClimbAction += ClimbActionHandler;
 		MoveInput.JumpAction += EndOnJump;
-		coll = GetComponent<Collider>();
-	}
-
-	void ClimbActionHandler()
-	{
-		if(player != null && stateCheck < 1)
-		{
-		//	coll.enabled = true;
-		player.GetComponent<MoveCharacter>().ClimbStart();
-		stateCheck++;
-		}
-	}
-
-	void EndOnJump()
-	{
-	//	coll.enabled = false;
-		if(player != null && stateCheck > 0)
-		{
-			player.GetComponent<MoveCharacter>().ClimbEnd();
-			stateCheck--;
-		}
 	}
 
 	void OnTriggerEnter(Collider other)
 	{
-		player = other.gameObject;
-		
+		player = other.GetComponent<MoveCharacter>();
+		player.ladderCount++;
 	}
-
-	void OnTriggerExit(Collider other)
+	
+	void OnTriggerExit()
 	{
-		
-	//	other.GetComponent<MoveCharacter>().ClimbEnd();
-		EndOnJump();
+		if(player.isClimbing && player.ladderCount < 2)
+		{
+			player.ClimbEnd();
+		}
+		player.ladderCount--;
 		player = null;
 	}
+
+    private void EndOnJump()
+    {
+        if(player != null)
+		{
+			player.ClimbEnd();
+		}
+    }
+
+    private void ClimbActionHandler()
+    {
+        if(player != null && !player.isClimbing)
+		{
+			player.ClimbStart();
+		}
+    }
 	
 }
