@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class Item : MonoBehaviour {
 
-	public string NAME {get;}
-	public string COLOR {get;}
+	public string name;
+	public enum color{RED, BLUE, GREEN}
 
 
-	Item(string name, string color)
-	{
-		this.NAME = name;
-		this.COLOR = color;
-	}
+	
 }

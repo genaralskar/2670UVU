@@ -38,7 +38,7 @@ public class PlatMoveTo : MonoBehaviour {
 		StopAllCoroutines();
 	}
 
-	public IEnumerator Move ()
+	IEnumerator Move ()
 	{
 	//	print("loop!");
 		yield return new WaitForSeconds(startDelay);
@@ -50,7 +50,7 @@ public class PlatMoveTo : MonoBehaviour {
 		}
 	}
 
-	public IEnumerator ReturnToStart()
+	IEnumerator ReturnToStart()
 	{
 	//	print("return to start");
 		while(transform.position != origin)
