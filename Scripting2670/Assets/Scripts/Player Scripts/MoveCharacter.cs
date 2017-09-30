@@ -235,7 +235,7 @@ public class MoveCharacter : MonoBehaviour {
 		} while(!cc.isGrounded && gravityOn);
 
 		
-		print("Hasselhoff strikes again!");
+	//	print("Hasselhoff strikes again!");
 		gravityOn = false;
 		OnLandAction();
 	}
