@@ -31,4 +31,6 @@ public class ItemPedestal : MonoBehaviour {
 		item.transform.parent = itemHolder;
 		item.transform.localPosition = Vector3.zero;
 	}
+
+
 }
