@@ -3394,7 +3394,7 @@ Prefab:
     - target: {fileID: 198823529001312002, guid: 0c2641f1b20d1784285e09ea6b53ac15,
         type: 2}
       propertyPath: randomSeed
-      value: 955208284
+      value: -1579682150
       objectReference: {fileID: 0}
     - target: {fileID: 198823529001312002, guid: 0c2641f1b20d1784285e09ea6b53ac15,
         type: 2}
@@ -3530,6 +3530,11 @@ Prefab:
         type: 2}
       propertyPath: ShapeModule.m_Scale.z
       value: 47.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 198823529001312002, guid: 0c2641f1b20d1784285e09ea6b53ac15,
+        type: 2}
+      propertyPath: ExternalForcesModule.enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c2641f1b20d1784285e09ea6b53ac15, type: 2}
@@ -4947,7 +4952,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 955208284
+  randomSeed: -1579682150
   InitialModule:
     serializedVersion: 3
     enabled: 1
