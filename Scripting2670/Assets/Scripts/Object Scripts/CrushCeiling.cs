@@ -9,16 +9,17 @@ public class CrushCeiling : MonoBehaviour {
 	public Vector3 endLoc;
 	public Vector3 startLoc;
 	public float time;
+	public float delayTime;
+	public float startDelay;
 
-
+	void Start()
+	{
+		startLoc = transform.position;
+		origin = transform.position;
+	}
 
 	public IEnumerator Move()
 	{
-		if(startLoc == Vector3.zero)
-		{
-			startLoc = transform.position;
-			origin = transform.position;
-		}
 
 		Vector3 _startPos = startLoc;
 		Vector3 _endPos = endLoc;
@@ -36,7 +37,17 @@ public class CrushCeiling : MonoBehaviour {
 		}
 		endLoc = _startPos;
 		startLoc = _endPos;
-		yield return new WaitForSeconds(1);
+		yield return new WaitForSeconds(delayTime);
+		StartCoroutine(Move());
+	}
+
+	public void StopMove()
+	{
+		StopAllCoroutines();
+	}
+
+	public void StartMove()
+	{
 		StartCoroutine(Move());
 	}
 }

@@ -10,6 +10,7 @@ public class PlatMoveTo : MonoBehaviour {
 	public float speed;
 	public float startDelay;
 	public bool moveAtStart = false;
+	public bool resetOnRespawn = false;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +18,10 @@ public class PlatMoveTo : MonoBehaviour {
 		if(moveAtStart)
 		{
 			StartCoroutine(Move());
+		}
+		if(resetOnRespawn)
+		{
+			RespawnPlayer.RespawnAction += EndMove;
 		}
 	}
 

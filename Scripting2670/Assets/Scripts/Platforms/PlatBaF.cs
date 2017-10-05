@@ -11,6 +11,7 @@ public class PlatBaF : MonoBehaviour {
 	public float startPointDelay = 0;
 	public float endPointDelay = 0;
 	public bool moveAtStart = false;
+	public bool resetOnRespawn = false;
 
 	void Start()
 	{
@@ -19,6 +20,20 @@ public class PlatBaF : MonoBehaviour {
 		{
 			StartCoroutine(StartMoveDelay());
 		}
+		if(resetOnRespawn)
+		{
+			RespawnPlayer.RespawnAction += EndMove;
+		}
+	}
+
+	public void StartMove()
+	{
+		StartCoroutine(StartMoveDelay());
+	}
+
+	public void EndMove()
+	{
+		StopAllCoroutines();
 	}
 
 	IEnumerator StartMoveDelay()
