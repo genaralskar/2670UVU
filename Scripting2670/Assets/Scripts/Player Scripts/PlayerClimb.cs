@@ -14,8 +14,8 @@ public class PlayerClimb : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-		player = other.GetComponent<MoveCharacter>();
-		player.ladderCount++;
+			player = other.GetComponent<MoveCharacter>();
+			player.ladderCount++;
 	}
 	
 	void OnTriggerExit()

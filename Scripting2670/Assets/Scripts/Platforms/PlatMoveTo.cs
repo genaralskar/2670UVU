@@ -15,6 +15,7 @@ public class PlatMoveTo : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		origin = transform.position;
+		RespawnPlayer.RespawnAction += EndMove;
 		if(moveAtStart)
 		{
 			StartCoroutine(Move());

@@ -8,6 +8,7 @@ public class GameData : MonoBehaviour {
 	public float gravity;
 	public float maxFallSpeed;
 	public float jumpPower;
+	public float jumpAmount;
 
 
 	// Use this for initialization
@@ -15,7 +16,8 @@ public class GameData : MonoBehaviour {
 		StaticVars.speed = speed;
 		StaticVars.gravity = gravity;
 		StaticVars.maxFallSpeed = maxFallSpeed;
-		StaticVars.jumpAmount = jumpPower;
+		StaticVars.jumpPower = jumpPower;
+		StaticVars.jumpAmount = jumpAmount;
 	}
 	
 	

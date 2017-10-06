@@ -37,7 +37,7 @@ public class MoveCharacter : MonoBehaviour {
 	void Start () {
 		cc = GetComponent<CharacterController>();
 		// StartButtonScript.Play += OnPlay;
-		MoveInput.KeyAction += Move;
+		MoveInput.KeyAction = Move;
 		MoveInput.JumpAction += Jump;
 
 		OnLandAction += ResetGravity;
@@ -46,7 +46,7 @@ public class MoveCharacter : MonoBehaviour {
 
 	void OnPlay()
 	{
-		MoveInput.KeyAction += Move;
+		MoveInput.KeyAction = Move;
 		MoveInput.JumpAction += Jump;
 		StartButtonScript.Play -= OnPlay;
 	}
@@ -54,7 +54,7 @@ public class MoveCharacter : MonoBehaviour {
 	public void DeathStart()
 	{
 		MoveInput.JumpAction -= Jump;
-		tempSpeed = speed;
+	//	tempSpeed = speed;
 		speed = 0;
 	}
 
@@ -62,7 +62,7 @@ public class MoveCharacter : MonoBehaviour {
 	{
 		MoveInput.JumpAction += Jump;
 	//	MoveInput.KeyAction += Move;
-		speed = tempSpeed;
+		speed = StaticVars.speed;
 	}
 	public void Move(float _movement)
 	{
@@ -117,20 +117,23 @@ public class MoveCharacter : MonoBehaviour {
 	
 	public void ClimbStart()
 	{
-		MoveInput.KeyAction -= Move;
-		gravityOn = false;
-		MoveInput.HorzVertAction += ClimbMove;
-		MoveInput.JumpAction -= Jump;
-		isClimbing = true;
+		if(!StaticVars.playerRespawning)
+		{
+			MoveInput.KeyAction = null;
+			gravityOn = false;
+			MoveInput.HorzVertAction = ClimbMove;
+			MoveInput.JumpAction -= Jump;
+			isClimbing = true;
+		}
 	//	StopAllCoroutines();
 	}
 
 	public void ClimbEnd()
 	{
-		if(isClimbing)
+		if(isClimbing && !StaticVars.playerRespawning)
 		{
-			MoveInput.KeyAction += Move;
-			MoveInput.HorzVertAction -= ClimbMove;
+			MoveInput.KeyAction = Move;
+			MoveInput.HorzVertAction = null;
 			MoveInput.JumpAction += Jump;
 			isClimbing = false;
 		}
@@ -238,5 +241,11 @@ public class MoveCharacter : MonoBehaviour {
 	//	print("Hasselhoff strikes again!");
 		gravityOn = false;
 		OnLandAction();
+	}
+
+	public void FreezePlayer()
+	{
+		gravity = 0;
+		tempMove = Vector3.zero;
 	}
 }

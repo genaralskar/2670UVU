@@ -9,6 +9,9 @@ public class MoveObjOnTrigger : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
+		print("triggered here " + other.transform.position);
+		print("triggered by " + other.transform);
+		print(Time.time);
 		if(other.tag == tagCheck)
 		{
 			obj.StartMove();

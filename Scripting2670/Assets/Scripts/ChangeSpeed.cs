@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class ChangeSpeed : MonoBehaviour {
 
 	public StaticVars.GameSpeed speedType;
+
+	public static Action ChangeSpeedAction;
 
 	void OnTriggerEnter(Collider other)
 	{
