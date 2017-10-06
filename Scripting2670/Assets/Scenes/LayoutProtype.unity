@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1142,6 +1142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5024f1633d92e44bd83e96d39fc13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentPlayer: 0
+  stickPlayer: 0
 --- !u!23 &215000999
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1609,6 +1611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resPoint: {fileID: 318565748}
+  resetLights: 0
 --- !u!23 &331373676
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1853,6 +1856,7 @@ MonoBehaviour:
   speed: 1
   startDelay: 0
   moveAtStart: 0
+  resetOnRespawn: 0
 --- !u!1 &432213613
 GameObject:
   m_ObjectHideFlags: 0
@@ -2090,6 +2094,7 @@ MonoBehaviour:
   speed: 1
   startDelay: 0
   moveAtStart: 0
+  resetOnRespawn: 0
 --- !u!1 &508535358
 GameObject:
   m_ObjectHideFlags: 0
@@ -2530,6 +2535,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5024f1633d92e44bd83e96d39fc13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentPlayer: 0
+  stickPlayer: 0
 --- !u!23 &603690434
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3098,6 +3105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5024f1633d92e44bd83e96d39fc13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentPlayer: 0
+  stickPlayer: 0
 --- !u!1 &698316829
 GameObject:
   m_ObjectHideFlags: 0
@@ -3524,6 +3533,7 @@ MonoBehaviour:
   speed: 1
   startDelay: 0
   moveAtStart: 0
+  resetOnRespawn: 0
 --- !u!1 &801223146
 GameObject:
   m_ObjectHideFlags: 0
@@ -3775,6 +3785,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5024f1633d92e44bd83e96d39fc13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentPlayer: 0
+  stickPlayer: 0
 --- !u!23 &870952124
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6223,6 +6235,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5024f1633d92e44bd83e96d39fc13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentPlayer: 0
+  stickPlayer: 0
 --- !u!1 &1492447525
 GameObject:
   m_ObjectHideFlags: 0
@@ -6498,6 +6512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resPoint: {fileID: 318565748}
+  resetLights: 0
 --- !u!23 &1529515896
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6716,6 +6731,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5024f1633d92e44bd83e96d39fc13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentPlayer: 0
+  stickPlayer: 0
 --- !u!23 &1612533458
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6890,6 +6907,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5024f1633d92e44bd83e96d39fc13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentPlayer: 0
+  stickPlayer: 0
 --- !u!23 &1654435039
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7368,6 +7387,7 @@ MonoBehaviour:
   speed: 0.5
   startDelay: 1
   moveAtStart: 0
+  resetOnRespawn: 0
 --- !u!1 &1701377006
 GameObject:
   m_ObjectHideFlags: 0
@@ -7644,6 +7664,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5024f1633d92e44bd83e96d39fc13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentPlayer: 0
+  stickPlayer: 0
 --- !u!23 &1770044262
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8166,6 +8188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5024f1633d92e44bd83e96d39fc13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentPlayer: 0
+  stickPlayer: 0
 --- !u!23 &1841025387
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8375,6 +8399,7 @@ MonoBehaviour:
   speed: 0.5
   startDelay: 0
   moveAtStart: 0
+  resetOnRespawn: 0
 --- !u!114 &1857407009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8741,7 +8766,7 @@ GameObject:
   - component: {fileID: 1930620819}
   - component: {fileID: 1930620818}
   - component: {fileID: 1930620825}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -8796,8 +8821,11 @@ MonoBehaviour:
   jumpAmount: 1
   curJumps: 0
   waterCount: 0
+  ladderCount: 0
+  isClimbing: 0
   doubleJumpPart: {fileID: 198842230623710640, guid: 5e97aed7f98c90d47af5303cbbc45d4d,
     type: 2}
+  zPos: 0
 --- !u!23 &1930620821
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8857,7 +8885,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1930620817}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 90.84, y: 8.06, z: 0}
+  m_LocalPosition: {x: -2.7, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1264095048}
@@ -8876,7 +8904,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1281569532}
+  moveChara: {fileID: 0}
   respawnPoint: {fileID: 318565748}
+  lights: 0
+  changeLight: {fileID: 0}
 --- !u!1 &1940323731
 GameObject:
   m_ObjectHideFlags: 0
@@ -9519,6 +9550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resPoint: {fileID: 318565748}
+  resetLights: 0
 --- !u!23 &2012558103
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9763,6 +9795,7 @@ MonoBehaviour:
   speed: 1
   startDelay: 0
   moveAtStart: 0
+  resetOnRespawn: 0
 --- !u!1 &2124871295
 GameObject:
   m_ObjectHideFlags: 0

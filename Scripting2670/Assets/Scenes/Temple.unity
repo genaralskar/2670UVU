@@ -4279,7 +4279,7 @@ GameObject:
   - component: {fileID: 653178633}
   - component: {fileID: 653178634}
   m_Layer: 10
-  m_Name: GameObject
+  m_Name: moving death
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11111,7 +11111,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1029113576}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 259, y: 1.3, z: 0}
+  m_LocalPosition: {x: 345.1, y: 1.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1427410428}
@@ -18133,7 +18133,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1382342703
+  randomSeed: 582229545
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -21839,8 +21839,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1722642850}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.419, z: 0}
-  m_LocalScale: {x: 9.699721, y: 2.4123077, z: 2.926384}
+  m_LocalPosition: {x: 0, y: 0.718, z: 0}
+  m_LocalScale: {x: 9.699721, y: 3.0104067, z: 2.926384}
   m_Children: []
   m_Father: {fileID: 1800240729}
   m_RootOrder: 0
@@ -22502,8 +22502,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1764939640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.419, z: 0}
-  m_LocalScale: {x: 9.699721, y: 2.4123077, z: 2.926384}
+  m_LocalPosition: {x: 0, y: 0.728, z: 0}
+  m_LocalScale: {x: 9.699721, y: 3.0104067, z: 2.926384}
   m_Children: []
   m_Father: {fileID: 1820574470}
   m_RootOrder: 0
