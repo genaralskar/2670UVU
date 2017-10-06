@@ -63,6 +63,9 @@ public class RespawnPlayer : MonoBehaviour {
 	//	MoveInput.KeyAction += Move;
 		moveChara.speed = StaticVars.speed;
 		moveChara.gravity = StaticVars.gravity;
+
+		GetComponent<ItemPickup>().item = null;
+
 		if(lights)
 		{
 			changeLight.ResetLights();

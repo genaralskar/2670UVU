@@ -6,7 +6,18 @@ public class Item : MonoBehaviour {
 
 	public string name;
 	public string color;
+	public ItemPedestal lastPedestal;
+
+	void Start()
+	{
+		RespawnPlayer.RespawnAction += MoveToLastPedestal;
+	}
+
+	void MoveToLastPedestal()
+	{
+		lastPedestal.item = this;
+		lastPedestal.UpdateItemPos();
+	}
 
 
-	
 }

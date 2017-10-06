@@ -26,10 +26,11 @@ public class ItemPedestal : MonoBehaviour {
 		}
 	}
 
-	void UpdateItemPos()
+	public void UpdateItemPos()
 	{
 		item.transform.parent = itemHolder;
 		item.transform.localPosition = Vector3.zero;
+		item.lastPedestal = this;
 	}
 
 
