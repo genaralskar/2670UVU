@@ -6,16 +6,23 @@ public class SpawnObject : MonoBehaviour {
 
 	public GameObject spawnObj;
 	public float spawnTime;
+	public float offset = 0;
 	public bool runOnStart;
 
 	// Use this for initialization
 	void Start () {
 		if(runOnStart)
 		{
-			StartCoroutine(Spawn());
+			StartCoroutine(StartOffset());
 		}
 	}
 	
+	IEnumerator StartOffset()
+	{
+		yield return new WaitForSeconds(offset);
+		StartCoroutine(Spawn());
+	}
+
 	IEnumerator Spawn()
 	{
 		while(true)

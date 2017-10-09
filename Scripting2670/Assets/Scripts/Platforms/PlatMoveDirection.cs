@@ -6,6 +6,7 @@ public class PlatMoveDirection : MonoBehaviour {
 
 	public Vector3 moveVector;
 	public float speed;
+	public float startDelay;
 	public bool moveAtStart = true;
 
 	Vector3 startPoint;
@@ -15,8 +16,14 @@ public class PlatMoveDirection : MonoBehaviour {
 		startPoint = transform.position;
 		if(moveAtStart)
 		{
-			StartCoroutine(Move());
+			StartCoroutine(StartDelay());
 		}
+	}
+
+	public IEnumerator StartDelay()
+	{
+		yield return new WaitForSeconds(startDelay);
+		StartCoroutine(Move());
 	}
 
 	public IEnumerator Move()
