@@ -21,7 +21,7 @@ public class FlipCharacter : MonoBehaviour {
 		StartButtonScript.Play -= OnPlay;
 	}
 
-    private void Flip(float obj)
+    public void Flip(float obj)
     {
 		if(obj > 0 && rotValue.y != 0)
 			rotValue.y = 0;
@@ -31,4 +31,14 @@ public class FlipCharacter : MonoBehaviour {
 		myQuat.eulerAngles = rotValue;
 		transform.rotation = myQuat;
     }
+	public void ClimbFlip(float horiz, float vert)
+	{
+		if(horiz > 0 && rotValue.y != 0)
+			rotValue.y = 0;
+		else if(horiz < 0 && rotValue.y != rotateAmount)
+			rotValue.y = rotateAmount;
+
+		myQuat.eulerAngles = rotValue;
+		transform.rotation = myQuat;
+	}
 }

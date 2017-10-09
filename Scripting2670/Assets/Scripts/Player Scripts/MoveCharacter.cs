@@ -27,6 +27,8 @@ public class MoveCharacter : MonoBehaviour {
 	public int ladderCount;
 	public bool isClimbing = false;
 
+	public FlipCharacter flip;
+
 	Action OnLandAction;
 
 
@@ -121,7 +123,9 @@ public class MoveCharacter : MonoBehaviour {
 		{
 			MoveInput.KeyAction = null;
 			gravityOn = false;
+			MoveInput.HorzVertAction = null;
 			MoveInput.HorzVertAction = ClimbMove;
+		//	MoveInput.HorzVertAction += flip.ClimbFlip;
 			MoveInput.JumpAction -= Jump;
 			isClimbing = true;
 		}
@@ -133,6 +137,7 @@ public class MoveCharacter : MonoBehaviour {
 		if(isClimbing && !StaticVars.playerRespawning)
 		{
 			MoveInput.KeyAction = Move;
+		//	MoveInput.KeyAction += flip.Flip;
 			MoveInput.HorzVertAction = null;
 			MoveInput.JumpAction += Jump;
 			isClimbing = false;

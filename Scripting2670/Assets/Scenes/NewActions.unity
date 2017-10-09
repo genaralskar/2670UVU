@@ -3906,7 +3906,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -627256158
+  randomSeed: -1923230068
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -11134,7 +11134,7 @@ ParticleSystemRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
-  m_SortMode: 0
+  m_SortMode: 3
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
   m_CameraVelocityScale: 0
@@ -11210,7 +11210,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1913368233
+  randomSeed: -551943484
   InitialModule:
     serializedVersion: 3
     enabled: 1

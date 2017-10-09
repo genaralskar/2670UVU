@@ -15,7 +15,7 @@ public class PlatParenter : MonoBehaviour {
 
 	void OnTriggerExit(Collider other)
 	{
-		if(other.tag == "Player")
+		if(other.tag == "Player" && other.transform.parent == this.transform)
 		{
 			other.transform.parent = null;
 		//	other.transform.rotation = Quaternion.identity;

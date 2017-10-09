@@ -8,14 +8,16 @@ public class PlatformParenter : MonoBehaviour {
 	{
 		if(other.tag == "Player")
 		{
-			other.transform.root.parent = gameObject.transform;
+			other.transform.root.parent = transform;
 		}
 	}
 
 	void OnTriggerExit(Collider other)
 	{
-		if(other.tag == "Player")
+		print("other parent = " + other.transform.parent);
+		if(other.tag == "Player" && other.transform.parent == this.transform)
 		{
+			print("unparent");
 			other.transform.parent.parent = null;
 		}
 	}

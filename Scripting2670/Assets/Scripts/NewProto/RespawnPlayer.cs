@@ -13,6 +13,7 @@ public class RespawnPlayer : MonoBehaviour {
 	public bool lights = false;
 	float tempGravity;
 	public ChangeLighting changeLight;
+	public FlipCharacter flip;
 
 	public static Action RespawnAction;
 
@@ -56,6 +57,7 @@ public class RespawnPlayer : MonoBehaviour {
 		}
 		ChangePos();
 		MoveInput.KeyAction = moveChara.Move;
+		MoveInput.KeyAction += flip.Flip;
 		MoveInput.HorzVertAction = null;
 		moveChara.isClimbing = false;
 	//	GetComponent<MoveCharacter>().DeathStop();

@@ -30,7 +30,7 @@ public class EnemyPatrolPoint : MonoBehaviour {
 
 	IEnumerator TimedDestination()
 	{
-		print("running coroutine");
+	//	print("running coroutine");
 		yield return new WaitForSeconds(1);
 		if(!patrol.chasingPlayer)
 		{
