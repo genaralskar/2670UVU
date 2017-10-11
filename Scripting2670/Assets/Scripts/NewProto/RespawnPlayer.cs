@@ -48,6 +48,7 @@ public class RespawnPlayer : MonoBehaviour {
 		MoveInput.JumpAction -= moveChara.Jump;
 	//	tempSpeed = speed;
 		moveChara.speed = 0;
+		moveChara.zLock = false;
 
 		
 		yield return new WaitForSeconds(2);
@@ -65,6 +66,7 @@ public class RespawnPlayer : MonoBehaviour {
 	//	MoveInput.KeyAction += Move;
 		moveChara.speed = StaticVars.speed;
 		moveChara.gravity = StaticVars.gravity;
+		moveChara.zLock = true;
 
 		GetComponent<ItemPickup>().item = null;
 

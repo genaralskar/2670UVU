@@ -16,7 +16,6 @@ public class PlatBaF : MonoBehaviour {
 	void Start()
 	{
 		startPoint = transform.position;
-		RespawnPlayer.RespawnAction += EndMove;
 		if(moveAtStart)
 		{
 			StartCoroutine(StartMoveDelay());

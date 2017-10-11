@@ -26,6 +26,7 @@ public class MoveCharacter : MonoBehaviour {
 	public int waterCount; // used for water stuff;
 	public int ladderCount;
 	public bool isClimbing = false;
+	public bool zLock = true;
 
 	public FlipCharacter flip;
 
@@ -113,7 +114,7 @@ public class MoveCharacter : MonoBehaviour {
 		cc.Move(tempMove * Time.deltaTime);
 
 
-		if(transform.position.z != zPos)
+		if(zLock && transform.position.z != zPos)
 			transform.position = new Vector3(transform.position.x, transform.position.y, zPos);
 	}
 	

@@ -31,7 +31,7 @@ public class EnemyPatrolPoint : MonoBehaviour {
 	IEnumerator TimedDestination()
 	{
 	//	print("running coroutine");
-		yield return new WaitForSeconds(1);
+		yield return new WaitForSeconds(3);
 		if(!patrol.chasingPlayer)
 		{
 			patrol.destination = newDestination;
