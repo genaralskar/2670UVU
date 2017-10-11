@@ -7,30 +7,25 @@ public class PlayerInventory : MonoBehaviour {
 	public int berries;
 	public int fish;
 	public int honey;
-	enum ItemType
-	{
-		BERRY,
-		FISH,
-		HONEY
-	}
+	StaticVars.ItemType type;
 
 	void Start()
 	{
 		
 	}
 
-	public void AddItem(int type, int amount)
+	public void AddItem(StaticVars.ItemType type, int amount)
 	{
 		switch(type)
 		{
-			case 0: //BERRY
-				berries++;
+			case StaticVars.ItemType.BERRY: //BERRY
+				berries += amount;
 				break;
-			case 1:	//FISH
-				fish++;
+			case StaticVars.ItemType.FISH:	//FISH
+				fish += amount;
 				break;
-			case 2:	//HONEY
-				honey++;
+			case StaticVars.ItemType.HONEY:	//HONEY
+				honey += amount;
 				break;
 		}
 	}

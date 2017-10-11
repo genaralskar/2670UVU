@@ -21,6 +21,12 @@ public class StaticVars : MonoBehaviour {
 	public static bool playerRespawning = false;
 
 	
+	public enum ItemType
+		{
+		BERRY,
+		FISH,
+		HONEY
+		}
 
 
 	public enum GameSpeed
