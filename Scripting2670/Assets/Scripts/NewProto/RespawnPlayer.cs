@@ -14,6 +14,7 @@ public class RespawnPlayer : MonoBehaviour {
 	float tempGravity;
 	public ChangeLighting changeLight;
 	public FlipCharacter flip;
+	public bool isRespawning = false;
 
 	public static Action RespawnAction;
 
@@ -25,9 +26,11 @@ public class RespawnPlayer : MonoBehaviour {
 
 	public void Respawn()
 	{
-		 if(!StaticVars.playerRespawning)
-		 	print("Respawning = " + StaticVars.playerRespawning);
+		 if(!isRespawning)
+		 {
+		 	print("Respawning = " + isRespawning);
 		 	StartCoroutine(DeathWait());
+		 }
 	}
 
 	void ChangePos ()
@@ -40,8 +43,8 @@ public class RespawnPlayer : MonoBehaviour {
 
 	IEnumerator DeathWait()
 	{
-		StaticVars.playerRespawning = true;
-		print("Respawning = " + StaticVars.playerRespawning);
+		isRespawning = true;
+		print("Respawning = " + isRespawning);
 		offset = mainCamera.transform.position - transform.position;
 		mainCamera.transform.parent = null;
 	//	GetComponent<MoveCharacter>().DeathStart();
@@ -83,7 +86,7 @@ public class RespawnPlayer : MonoBehaviour {
 		// mainCamera.transform.position = transform.position + offset;
 		mainCamera.transform.position = transform.GetChild(0).position;
 		
-		StaticVars.playerRespawning = false;
-		print("Respawning = " + StaticVars.playerRespawning);
+		isRespawning = false;
+		print("Respawning = " + isRespawning);
 	}
 }
