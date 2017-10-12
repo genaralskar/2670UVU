@@ -168,8 +168,9 @@ public class MoveCharacter : MonoBehaviour {
 			if(!cc.isGrounded)
 			{
 				// doubleJumpPart.Play();
-				ParticleSystem part;
-				part = Instantiate(doubleJumpPart, transform.position, Quaternion.identity);
+			//	ParticleSystem part;
+			//	part = Instantiate(doubleJumpPart, transform.position, transform.rotation);
+				doubleJumpPart.Play();
 				// Destroy(part, 2);
 			}
 			curJumps++;

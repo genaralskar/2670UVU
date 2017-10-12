@@ -62,6 +62,12 @@ public class PlatBaF : MonoBehaviour {
 		StartCoroutine(Move());
 	}
 
+	public void StartReturn()
+	{
+		StopAllCoroutines();
+		StartCoroutine(ReturnToStart());
+	}
+
 	public IEnumerator ReturnToStart ()
 	{
 		StopCoroutine(Move());

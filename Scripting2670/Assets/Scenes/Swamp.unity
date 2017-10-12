@@ -550,6 +550,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5024f1633d92e44bd83e96d39fc13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentPlayer: 0
+  stickPlayer: 0
 --- !u!23 &108995232
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -632,6 +634,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5024f1633d92e44bd83e96d39fc13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentPlayer: 0
+  stickPlayer: 0
 --- !u!114 &133636200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -649,6 +653,7 @@ MonoBehaviour:
   startPointDelay: 1
   endPointDelay: 0.5
   moveAtStart: 1
+  resetOnRespawn: 0
 --- !u!23 &133636201
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -917,6 +922,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5024f1633d92e44bd83e96d39fc13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentPlayer: 0
+  stickPlayer: 0
 --- !u!1 &353371544
 GameObject:
   m_ObjectHideFlags: 0
@@ -1786,6 +1793,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5024f1633d92e44bd83e96d39fc13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentPlayer: 0
+  stickPlayer: 0
 --- !u!114 &514471035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1803,6 +1812,7 @@ MonoBehaviour:
   startPointDelay: 1
   endPointDelay: 0.5
   moveAtStart: 1
+  resetOnRespawn: 0
 --- !u!23 &514471036
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2394,6 +2404,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5024f1633d92e44bd83e96d39fc13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentPlayer: 0
+  stickPlayer: 0
 --- !u!114 &671724773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2411,6 +2423,7 @@ MonoBehaviour:
   startPointDelay: 1
   endPointDelay: 0.5
   moveAtStart: 1
+  resetOnRespawn: 0
 --- !u!23 &671724774
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2923,7 +2936,7 @@ GameObject:
   - component: {fileID: 838824748}
   - component: {fileID: 838824747}
   m_Layer: 0
-  m_Name: Directional Light
+  m_Name: Swamp Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3761,6 +3774,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5024f1633d92e44bd83e96d39fc13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentPlayer: 0
+  stickPlayer: 0
 --- !u!114 &1217378357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3778,6 +3793,7 @@ MonoBehaviour:
   startPointDelay: 1
   endPointDelay: 0.5
   moveAtStart: 1
+  resetOnRespawn: 0
 --- !u!23 &1217378358
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3873,6 +3889,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5024f1633d92e44bd83e96d39fc13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentPlayer: 0
+  stickPlayer: 0
 --- !u!114 &1242342974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3890,6 +3908,7 @@ MonoBehaviour:
   startPointDelay: 1
   endPointDelay: 0.5
   moveAtStart: 1
+  resetOnRespawn: 0
 --- !u!23 &1242342975
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8226,6 +8245,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5024f1633d92e44bd83e96d39fc13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentPlayer: 0
+  stickPlayer: 0
 --- !u!23 &1437288587
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8941,7 +8962,7 @@ GameObject:
   - component: {fileID: 1626624948}
   - component: {fileID: 1626624947}
   m_Layer: 0
-  m_Name: Directional light
+  m_Name: Swamp Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9297,6 +9318,7 @@ MonoBehaviour:
   startPointDelay: 1
   endPointDelay: 0.5
   moveAtStart: 1
+  resetOnRespawn: 0
 --- !u!114 &1702010674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9308,6 +9330,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5024f1633d92e44bd83e96d39fc13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentPlayer: 0
+  stickPlayer: 0
 --- !u!1 &1737872978
 GameObject:
   m_ObjectHideFlags: 0
@@ -9772,6 +9796,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5024f1633d92e44bd83e96d39fc13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentPlayer: 0
+  stickPlayer: 0
 --- !u!114 &1777603664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9789,6 +9815,7 @@ MonoBehaviour:
   startPointDelay: 1
   endPointDelay: 0.5
   moveAtStart: 1
+  resetOnRespawn: 0
 --- !u!23 &1777603665
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10499,6 +10526,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5024f1633d92e44bd83e96d39fc13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentPlayer: 0
+  stickPlayer: 0
 --- !u!23 &2068283361
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11034,9 +11063,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1692978832}
+  moveChara: {fileID: 0}
   respawnPoint: {fileID: 389252477}
   lights: 0
   changeLight: {fileID: 1737872987}
+  flip: {fileID: 0}
 --- !u!114 &2146685733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11087,6 +11118,8 @@ MonoBehaviour:
   waterCount: 0
   ladderCount: 0
   isClimbing: 0
+  zLock: 1
+  flip: {fileID: 0}
   doubleJumpPart: {fileID: 198842230623710640, guid: 5e97aed7f98c90d47af5303cbbc45d4d,
     type: 2}
   zPos: 0
