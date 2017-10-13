@@ -70,5 +70,6 @@ public class ChangeLight : MonoBehaviour {
 	void StopChanging()
 	{
 		StopAllCoroutines();
+		running = false;
 	}
 }
