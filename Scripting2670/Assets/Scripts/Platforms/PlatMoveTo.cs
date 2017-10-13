@@ -42,6 +42,7 @@ public class PlatMoveTo : MonoBehaviour {
 	public void EndMove()
 	{
 		StopAllCoroutines();
+		transform.position = origin;
 	}
 
 	IEnumerator Move ()

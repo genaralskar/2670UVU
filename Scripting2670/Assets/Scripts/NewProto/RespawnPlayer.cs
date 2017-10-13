@@ -12,7 +12,7 @@ public class RespawnPlayer : MonoBehaviour {
 	bool respawning = false;
 	public bool lights = false;
 	float tempGravity;
-	public ChangeLighting changeLight;
+//	public ChangeLighting changeLight;
 	public FlipCharacter flip;
 	public bool isRespawning = false;
 
@@ -73,10 +73,10 @@ public class RespawnPlayer : MonoBehaviour {
 
 		GetComponent<ItemPickup>().item = null;
 
-		if(lights)
-		{
-			changeLight.ResetLights();
-		}
+		// if(lights)
+		// {
+		// 	changeLight.ResetLights();
+		// }
 		yield return new WaitForFixedUpdate();
 		if(RespawnAction != null)
 		{

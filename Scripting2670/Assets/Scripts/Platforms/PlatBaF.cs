@@ -34,6 +34,7 @@ public class PlatBaF : MonoBehaviour {
 	public void EndMove()
 	{
 		StopAllCoroutines();
+		transform.position = startPoint;
 	}
 
 	IEnumerator StartMoveDelay()
