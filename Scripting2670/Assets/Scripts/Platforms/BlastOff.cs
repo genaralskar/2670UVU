@@ -11,6 +11,9 @@ public class BlastOff : MonoBehaviour {
 	public Vector3 endLoc;
 	public float speed;
 	public float acceleration = 1;
+	public float startDelay;
+	public float takeOffDelay;
+
 	float startSpeed = 0;
 
 	// Use this for initialization
@@ -26,8 +29,9 @@ public class BlastOff : MonoBehaviour {
 	
 	IEnumerator Blast()
 	{
+		yield return new WaitForSeconds(startDelay);
 		shake.StartShake();
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(takeOffDelay);
 		StartCoroutine(Move());
 	}
 

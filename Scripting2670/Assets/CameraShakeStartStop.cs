@@ -15,7 +15,7 @@ public class CameraShakeStartStop : MonoBehaviour {
 
 	void OnTriggerEnter()
 	{
-		Shake.StartCameraShake();
+	//	Shake.StartCameraShake();
 		StartCoroutine(StartShake());
 		if(useOnce)
 		{

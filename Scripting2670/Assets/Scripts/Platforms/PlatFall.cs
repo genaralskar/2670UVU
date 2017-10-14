@@ -50,7 +50,7 @@ public class PlatFall : MonoBehaviour {
 		while(isFalling)
 		{
 			transform.Translate(Vector3.down * fallSpeed * Time.deltaTime);
-			print("falling!");
+		//	print("falling!");
 			yield return null;
 		}
 	}
