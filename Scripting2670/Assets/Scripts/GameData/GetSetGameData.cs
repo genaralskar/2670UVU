@@ -13,6 +13,7 @@ public class GetSetGameData : MonoBehaviour {
 	void Awake()
 	{
 		ForPurchase.PurchaseAction += PurchaseHandler;
+		BuyGold.BuyGoldAction += BuyGoldHandler;
 	}
 
     void PurchaseHandler(int _price, GameObject _item)
@@ -21,17 +22,31 @@ public class GetSetGameData : MonoBehaviour {
 		{
         	data.gold -= _price;
 			UpdateGold(data.gold);
+
+			data.purchases.Add(_item);
 		}
     }
 
-    void Start()
+	void BuyGoldHandler(int _gold)
 	{
-		data = JsonUtility.FromJson<Data>(PlayerPrefs.GetString("GameData"));
+		data.gold += _gold;
+		UpdateGold(data.gold);
 	}
 
-	void OnApplicaionQuit()
+    void Start()
 	{
-		PlayerPrefs.SetString("GameData", JsonUtility.ToJson(data));
+		data = data.GetData();
+	//	data = JsonUtility.FromJson<Data>(PlayerPrefs.GetString("GameData"));
+		UpdateGold(data.gold);
+		print(data.gold);
+	}
+
+	void OnApplicationQuit()
+	{
+		data.SetData(data);
+		print(data.gold);
+	//	PlayerPrefs.SetString("GameData", JsonUtility.ToJson(data));
+		
 	//	print(SaveToString());
 	}
 }

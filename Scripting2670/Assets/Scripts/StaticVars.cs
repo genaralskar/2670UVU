@@ -20,6 +20,18 @@ public class StaticVars : MonoBehaviour {
 	public static float waterJumpAmount;
 	public static bool playerRespawning = false;
 
+	public static Data data = new Data();
+
+	public static void GetData()
+	{
+		 data = data.GetData();
+	}
+
+	public static void SetData()
+	{
+		data.SetData(data);
+	}
+
 	
 	public enum ItemType
 		{
