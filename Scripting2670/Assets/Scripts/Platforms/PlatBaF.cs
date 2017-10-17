@@ -12,6 +12,7 @@ public class PlatBaF : MonoBehaviour {
 	public float endPointDelay = 0;
 	public bool moveAtStart = false;
 	public bool resetOnRespawn = false;
+	public bool shakeCamera = false;
 
 	void Start()
 	{
@@ -39,20 +40,34 @@ public class PlatBaF : MonoBehaviour {
 
 	IEnumerator StartMoveDelay()
 	{
+		
 		yield return new WaitForSeconds(startLoopDelay);
+		
 		StartCoroutine(Move());
 	}
 
 	public IEnumerator Move()
 	{
+		if(shakeCamera)
+		{
+			Shake.StartCameraShake();
+			print("shake");
+		}
+			
 		yield return new WaitForSeconds(startPointDelay);
+		if(shakeCamera)
+			Shake.StopCameraShake();
 		while(transform.position != endPoint)
 		{
 			transform.position = Vector3.MoveTowards(transform.position, endPoint, speed * Time.deltaTime);
 
 			yield return null;
 		}
+		if(shakeCamera)
+			Shake.StartCameraShake();
 		yield return new WaitForSeconds(endPointDelay);
+		if(shakeCamera)
+			Shake.StopCameraShake();
 		while(transform.position != startPoint)
 		{
 			transform.position = Vector3.MoveTowards(transform.position, startPoint, speed * Time.deltaTime);

@@ -12,24 +12,28 @@ public class PlatShake : MonoBehaviour {
 	void Start()
 	{
 		origin = transform.localPosition;
+		RespawnPlayer.RespawnAction += OnRespawn;
 	}
 
 	public void StartShake()
 	{
+		origin = transform.localPosition;
 		StartCoroutine(Shake());
 	}
+
 
 	public void EndShake(bool reset)
 	{
 		StopAllCoroutines();
+		print("reset platform: " + reset);
 		if(reset)
-			transform.parent.position = origin;
+			transform.localPosition = origin;
 	}
-	public void EndShake()
-	{
-		StopAllCoroutines();
-		transform.position = origin;
-	}
+	// public void EndShake()
+	// {
+	// 	StopAllCoroutines();
+	// 	transform.localPosition = origin;
+	// }
 
 	IEnumerator Shake()
 	{
@@ -38,5 +42,10 @@ public class PlatShake : MonoBehaviour {
 			transform.localPosition = new Vector3(origin.x + UnityEngine.Random.Range(rangeMin, rangeMax), origin.y + UnityEngine.Random.Range(rangeMin, rangeMax), origin.z + UnityEngine.Random.Range(rangeMin, rangeMax));
 			yield return new WaitForSeconds(shakeRate);
 		}
+	}
+
+	void OnRespawn()
+	{
+		EndShake(true);
 	}
 }

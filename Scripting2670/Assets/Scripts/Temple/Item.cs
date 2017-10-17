@@ -7,10 +7,12 @@ public class Item : MonoBehaviour {
 	public string name;
 	public string color;
 	public ItemPedestal lastPedestal;
+	public bool resetOnRespawn;
 
 	void Start()
 	{
-		RespawnPlayer.RespawnAction += MoveToLastPedestal;
+		if(resetOnRespawn)
+			RespawnPlayer.RespawnAction += MoveToLastPedestal;
 	}
 
 	void MoveToLastPedestal()

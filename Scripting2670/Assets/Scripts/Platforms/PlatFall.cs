@@ -38,7 +38,7 @@ public class PlatFall : MonoBehaviour {
 		isFalling = true;
 		print("shake");
 		yield return new WaitForSeconds(fallDelay);
-		shake.EndShake();
+		shake.EndShake(true);
 		StartCoroutine(Move());
 		print("fall!");
 		yield return new WaitForSeconds(disappearSpeed);

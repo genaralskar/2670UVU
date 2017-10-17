@@ -5,7 +5,13 @@ using UnityEngine;
 public class MoveObjOnTrigger : MonoBehaviour {
 
 	public PlatMoveTo obj;
-	
+	bool moving;
+
+
+	void Start()
+	{
+		RespawnPlayer.RespawnAction += OnRespawn;
+	}
 
 	void OnTriggerEnter(Collider other)
 	{
@@ -13,9 +19,14 @@ public class MoveObjOnTrigger : MonoBehaviour {
 		print("triggered by " + other.transform);
 		print(Time.time);
 		
-		
-		obj.StartMove();
+		if(!moving)
+			obj.StartMove();
 		
 	}
 
+
+	void OnRespawn()
+	{
+		moving = true;
+	}
 }
