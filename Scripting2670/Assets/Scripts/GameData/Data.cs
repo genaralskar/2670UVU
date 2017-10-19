@@ -4,6 +4,11 @@ using System.Collections.Generic;
 [System.Serializable]
 public class Data {
 
+	Data()
+	{
+
+	}
+
 	public int totalScore;
 	public float health;
 	public string playerName;
@@ -12,13 +17,34 @@ public class Data {
 
 	public List<GameObject> purchases;
 
-	public void SetData(Data data)
+	private static Data _Instance;
+	public static Data Instance
 	{
-		PlayerPrefs.SetString("GameData", JsonUtility.ToJson(data));
+		get
+		{
+			if(_Instance == null)
+			{
+				_Instance = new Data();
+				_Instance = Data.GetData();
+			}
+			return _Instance;	
+		}
+
+		set
+		{
+			_Instance = value;
+		}
 	}
 
-	public Data GetData()
+	public static Data GetData()
 	{
 		return JsonUtility.FromJson<Data>(PlayerPrefs.GetString("GameData"));
 	}
+
+	public static void SetData()
+	{
+		PlayerPrefs.SetString("GameData", JsonUtility.ToJson(_Instance));
+	}
+
+	
 }

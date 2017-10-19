@@ -11,7 +11,7 @@ public class StaticVars : MonoBehaviour {
 	public static float jumpAmount;
 
 	public static float dragSpeed;
-	public static float booseSpeed;
+	public static float boostSpeed;
 	
 	public static float waterSpeed;
 	public static float waterGravity;
@@ -20,16 +20,16 @@ public class StaticVars : MonoBehaviour {
 	public static float waterJumpAmount;
 	public static bool playerRespawning = false;
 
-	public static Data data = new Data();
+//	public static Data data = new Data();
 
 	public static void GetData()
 	{
-		 data = data.GetData();
+	//	 data = Data.GetData();
 	}
 
 	public static void SetData()
 	{
-		data.SetData(data);
+	//	Data.SetData(data);
 	}
 
 	
