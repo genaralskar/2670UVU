@@ -7,10 +7,13 @@ public class Item : MonoBehaviour {
 	public string name;
 	public string color;
 	public ItemPedestal lastPedestal;
+	ItemPedestal origin;
 	public bool resetOnRespawn;
 
 	void Start()
 	{
+		origin = lastPedestal;
+		MoveInput.ResetAction += End;
 		if(resetOnRespawn)
 			RespawnPlayer.RespawnAction += MoveToLastPedestal;
 	}
@@ -21,5 +24,12 @@ public class Item : MonoBehaviour {
 		lastPedestal.UpdateItemPos();
 	}
 
+	void End()
+	{
+	//	print("end");
+		GetComponent<Item>().lastPedestal.item = null;
+		origin.item = GetComponent<Item>();
+		origin.UpdateItemPos();
+	}
 
 }

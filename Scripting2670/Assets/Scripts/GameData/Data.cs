@@ -15,7 +15,7 @@ public class Data {
 	public Vector3 checkPoint;
 	public int gold = 100;
 
-	public List<GameObject> purchases;
+	public List<string> purchases;
 
 	private static Data _Instance;
 	public static Data Instance

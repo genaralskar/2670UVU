@@ -11,7 +11,7 @@ public class PlayerInventory : MonoBehaviour {
 
 	void Start()
 	{
-		
+		MoveInput.ResetAction += End;
 	}
 
 	public void AddItem(StaticVars.ItemType type, int amount)
@@ -28,5 +28,12 @@ public class PlayerInventory : MonoBehaviour {
 				honey += amount;
 				break;
 		}
+	}
+
+	void End()
+	{
+		berries = 0;
+		fish = 0;
+		honey = 0;
 	}
 }

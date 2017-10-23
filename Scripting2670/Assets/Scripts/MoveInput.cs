@@ -78,4 +78,17 @@ public class MoveInput : MonoBehaviour {
 			ResetAction();
 		}
 	}
+
+	void NullActions()
+	{
+		KeyAction = null;
+		VertMoveAction = null;
+		HorzVertAction = null;
+		JumpAction = null;
+		CrouchAction = null;
+		EndCrouchAction = null;
+		ClimbAction = null;
+
+		ResetAction = null;	
+	}
 }

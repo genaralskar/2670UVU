@@ -28,6 +28,7 @@ public class ItemPedestal : MonoBehaviour {
 
 	public void UpdateItemPos()
 	{
+		print(this);
 		item.transform.parent = itemHolder;
 		item.transform.localPosition = Vector3.zero;
 		item.lastPedestal = this;
