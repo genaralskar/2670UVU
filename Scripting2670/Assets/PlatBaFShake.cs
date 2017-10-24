@@ -17,6 +17,7 @@ public class PlatBaFShake : MonoBehaviour {
 	void Start()
 	{
 		startPoint = transform.position;
+		MoveInput.ResetAction += Reset;
 		if(moveAtStart)
 		{
 			StartCoroutine(StartMoveDelay());
@@ -85,6 +86,12 @@ public class PlatBaFShake : MonoBehaviour {
 			transform.position = Vector3.MoveTowards(transform.position, startPoint, speed * Time.deltaTime);
 			yield return null;
 		}
+	}
+
+	void Reset()
+	{
+		StopAllCoroutines();
+		transform.position = startPoint;
 	}
 
 }

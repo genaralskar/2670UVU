@@ -27,5 +27,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Temple.unity
     guid: 7c06001892be85046afd06d47ac1ac76
   - enabled: 1
+    path: Assets/Scenes/Title Screen.unity
+    guid: cfa4216198ae7b64d9c58ebb14959008
+  - enabled: 1
     path: Assets/Scenes/TogetherLevel.unity
     guid: b54a65a9e79077b40b84b6f66a019d2b

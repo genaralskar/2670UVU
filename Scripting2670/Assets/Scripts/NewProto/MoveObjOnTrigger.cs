@@ -29,4 +29,5 @@ public class MoveObjOnTrigger : MonoBehaviour {
 	{
 		moving = true;
 	}
+	
 }

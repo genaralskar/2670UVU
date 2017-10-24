@@ -161,7 +161,7 @@ public class MoveCharacter : MonoBehaviour {
 		// player must move away from wall to jump again
 		if(curJumps < jumpAmount && cc.collisionFlags != CollisionFlags.Sides)
 		{
-			if(cc.isGrounded)
+			if(cc.isGrounded && !gravityOn)
 			{
 				StartCoroutine(Gravity());
 			}

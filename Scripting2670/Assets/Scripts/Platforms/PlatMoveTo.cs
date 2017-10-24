@@ -15,6 +15,7 @@ public class PlatMoveTo : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		origin = transform.position;
+		MoveInput.ResetAction += Reset;
 	//	RespawnPlayer.RespawnAction += EndMove;
 		if(moveAtStart)
 		{
@@ -67,5 +68,10 @@ public class PlatMoveTo : MonoBehaviour {
 		//	print("gogoggo");
 			yield return null;
 		}
+	}
+
+	void Reset()
+	{
+		EndMove();
 	}
 }

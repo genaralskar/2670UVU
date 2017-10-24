@@ -20,6 +20,7 @@ public class MoveInput : MonoBehaviour {
 	public static Action CrouchAction;
 	public static Action EndCrouchAction;
 	public static Action ClimbAction;
+	public static Action PauseAction;
 
 
 	void Start()
@@ -62,6 +63,10 @@ public class MoveInput : MonoBehaviour {
 			{
 				ClimbAction();
 			}
+			if(Input.GetButtonDown("Pause") && PauseAction != null)
+			{
+				PauseAction();
+			}
 			yield return new WaitForSeconds(runTime);
 		}
 		while(!canRun)
@@ -75,20 +80,23 @@ public class MoveInput : MonoBehaviour {
 	{
 		if(ResetAction != null)
 		{
+			RespawnPlayer.RespawnAction();
 			ResetAction();
 		}
 	}
 
-	void NullActions()
+	public static void NullActions()
 	{
 		KeyAction = null;
 		VertMoveAction = null;
 		HorzVertAction = null;
+		ConstantAction = null;
 		JumpAction = null;
 		CrouchAction = null;
 		EndCrouchAction = null;
 		ClimbAction = null;
-
-		ResetAction = null;	
+		PauseAction = null;
+		RespawnPlayer.RespawnAction = null;
+		ResetAction = null;
 	}
 }

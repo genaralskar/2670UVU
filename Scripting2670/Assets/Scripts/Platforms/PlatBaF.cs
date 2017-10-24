@@ -94,4 +94,9 @@ public class PlatBaF : MonoBehaviour {
 		}
 	}
 
+	void Reset()
+	{
+		StopAllCoroutines();
+	}
+
 }

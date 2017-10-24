@@ -8,11 +8,15 @@ public class CameraTrack : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		MoveInput.ConstantAction += Track;
+		StartCoroutine(Track());	
 	}
 	
-	void Track ()
+	IEnumerator Track ()
 	{
-		transform.position = new Vector3(tracker.transform.position.x, tracker.transform.position.y, transform.position.z);
+		while(true)
+		{
+			transform.position = new Vector3(tracker.transform.position.x, tracker.transform.position.y, transform.position.z);
+			yield return null;
+		}
 	}
 }
