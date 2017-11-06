@@ -28,10 +28,10 @@ public class MoveCharacter : MonoBehaviour {
 	public bool isClimbing = false;
 	public bool zLock = true;
 
+	public FlipCharacter flip;
 
 	Action OnLandAction;
 
-	public Animator anims;
 
 	public ParticleSystem doubleJumpPart;
 	public float zPos = 0;
@@ -116,10 +116,6 @@ public class MoveCharacter : MonoBehaviour {
 
 		if(zLock && transform.position.z != zPos)
 			transform.position = new Vector3(transform.position.x, transform.position.y, zPos);
-
-		anims.SetFloat("Walk", Mathf.Abs(_movement));
-		anims.SetBool("Falling", gravityOn);
-	//	anims.speed = Mathf.Abs(_movement);
 	}
 	
 	public void ClimbStart()
@@ -258,12 +254,5 @@ public class MoveCharacter : MonoBehaviour {
 	{
 		gravity = 0;
 		tempMove = Vector3.zero;
-	}
-
-
-
-	void Animation()
-	{
-		anims.SetFloat("Walk", Mathf.Abs(Input.GetAxis("Horizontal")));
 	}
 }

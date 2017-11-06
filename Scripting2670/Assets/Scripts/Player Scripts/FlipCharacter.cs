@@ -8,13 +8,11 @@ public class FlipCharacter : MonoBehaviour {
 	Quaternion myQuat;
 	Vector3 rotValue;
 	public float rotateAmount = 180;
-	public float offset = 90;
 
 	// Use this for initialization
 	void Start () {
 		// StartButtonScript.Play += OnPlay;
 		MoveInput.KeyAction += Flip;
-		print(MoveInput.KeyAction);
 	}
 
 	void OnPlay()
@@ -25,11 +23,10 @@ public class FlipCharacter : MonoBehaviour {
 
     public void Flip(float obj)
     {
-		print(obj);
 		if(obj > 0 && rotValue.y != 0)
-			rotValue.y = 0 + offset;
+			rotValue.y = 0;
 		else if(obj < 0 && rotValue.y != rotateAmount)
-			rotValue.y = rotateAmount + offset;
+			rotValue.y = rotateAmount;
 
 		myQuat.eulerAngles = rotValue;
 		transform.rotation = myQuat;
