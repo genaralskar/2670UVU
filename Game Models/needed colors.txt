@@ -1,0 +1,8 @@
+grey
+stone path color, light grey?
+green
+brown
+tan (grass path)
+blue
+purple for berries
+white
