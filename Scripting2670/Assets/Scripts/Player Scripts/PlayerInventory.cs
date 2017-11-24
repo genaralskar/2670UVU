@@ -7,6 +7,7 @@ public class PlayerInventory : MonoBehaviour {
 	public int berries;
 	public int fish;
 	public int honey;
+	public InventoryUI UI;
 	StaticVars.ItemType type;
 
 	void Start()
@@ -20,9 +21,11 @@ public class PlayerInventory : MonoBehaviour {
 		{
 			case StaticVars.ItemType.BERRY: //BERRY
 				berries += amount;
+				UI.AddImgeToSlot("berry");
 				break;
 			case StaticVars.ItemType.FISH:	//FISH
 				fish += amount;
+				UI.AddImgeToSlot("fish");
 				break;
 			case StaticVars.ItemType.HONEY:	//HONEY
 				honey += amount;
@@ -30,10 +33,18 @@ public class PlayerInventory : MonoBehaviour {
 		}
 	}
 
+	public void ClearInventory()
+	{
+		berries = 0;
+		fish = 0;
+		UI.ClearImages();
+	}
+
 	void End()
 	{
 		berries = 0;
 		fish = 0;
 		honey = 0;
+		UI.ClearImages();
 	}
 }

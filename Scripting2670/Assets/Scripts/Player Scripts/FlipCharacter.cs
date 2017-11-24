@@ -25,7 +25,7 @@ public class FlipCharacter : MonoBehaviour {
 
     public void Flip(float obj)
     {
-		print(obj);
+	//	print(obj);
 		if(obj > 0 && rotValue.y != 0)
 			rotValue.y = 0 + offset;
 		else if(obj < 0 && rotValue.y != rotateAmount)

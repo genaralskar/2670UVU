@@ -45,9 +45,7 @@ public class RespawnPlayer : MonoBehaviour {
 	{
 		isRespawning = true;
 		print("Respawning = " + isRespawning);
-		offset = mainCamera.transform.position - transform.position;
-		Vector3 tempCameraPos = mainCamera.transform.localPosition;
-		mainCamera.transform.parent = null;
+		mainCamera.GetComponent<CameraTrack>().StopTrack();
 	//	GetComponent<MoveCharacter>().DeathStart();
 		MoveInput.JumpAction -= moveChara.Jump;
 	//	tempSpeed = speed;
@@ -83,9 +81,7 @@ public class RespawnPlayer : MonoBehaviour {
 		{
 			RespawnAction();
 		}
-		mainCamera.transform.parent = transform;
-		// mainCamera.transform.position = transform.position + offset;
-		mainCamera.transform.localPosition = tempCameraPos;
+		mainCamera.GetComponent<CameraTrack>().StartTrack();
 		
 		isRespawning = false;
 		print("Respawning = " + isRespawning);

@@ -25,7 +25,7 @@ public class PlatShake : MonoBehaviour {
 	public void EndShake(bool reset)
 	{
 		StopAllCoroutines();
-		print("reset platform: " + reset);
+	//	print("reset platform: " + reset);
 		if(reset)
 			transform.localPosition = origin;
 	}

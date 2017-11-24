@@ -15,9 +15,7 @@ public class BlastOffItemCheck : MonoBehaviour {
 		if(inv.berries >= berriesReq && inv.fish >= fishReq && inv.honey >= honeyReq)
 		{
 			blast.StartBlast();
-			inv.berries -= berriesReq;
-			inv.fish -= fishReq;
-			inv.honey -= honeyReq;
+			inv.ClearInventory();
 		}
 	}
 }

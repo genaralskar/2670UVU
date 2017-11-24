@@ -17,7 +17,7 @@ public class MoveObjOnTrigger : MonoBehaviour {
 	{
 		print("triggered here " + other.transform.position);
 		print("triggered by " + other.transform);
-		print(Time.time);
+	//	print(Time.time);
 		
 		if(!moving)
 			obj.StartMove();
@@ -27,7 +27,7 @@ public class MoveObjOnTrigger : MonoBehaviour {
 
 	void OnRespawn()
 	{
-		moving = true;
+		moving = false;
 	}
 	
 }

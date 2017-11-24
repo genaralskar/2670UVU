@@ -5,18 +5,34 @@ using UnityEngine;
 public class CameraTrack : MonoBehaviour {
 
 	public Transform tracker;
+	public Vector3 offset;
+	public float trackSpeed = 1f;
 
 	// Use this for initialization
 	void Start () {
-		StartCoroutine(Track());	
+		StartTrack();	
 	}
 	
 	IEnumerator Track ()
 	{
 		while(true)
 		{
-			transform.position = new Vector3(tracker.transform.position.x, tracker.transform.position.y, transform.position.z);
+			transform.LookAt(tracker);
+			Vector3 desiredPos = tracker.position + offset;
+
+			transform.position = Vector3.Lerp(transform.position, desiredPos, trackSpeed * Time.deltaTime);
+			
 			yield return null;
 		}
+	}
+
+	public void StartTrack()
+	{
+		StartCoroutine(Track());
+	}
+
+	public void StopTrack()
+	{
+		StopAllCoroutines();
 	}
 }
