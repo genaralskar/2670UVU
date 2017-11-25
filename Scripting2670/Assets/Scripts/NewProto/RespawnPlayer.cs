@@ -70,7 +70,11 @@ public class RespawnPlayer : MonoBehaviour {
 		moveChara.gravity = StaticVars.gravity;
 		moveChara.zLock = true;
 
-		GetComponent<ItemPickup>().item = null;
+		ItemPickup playeritem = GetComponent<ItemPickup>();
+		if(playeritem.item != null && playeritem.item.resetOnRespawn)
+		{
+			playeritem.item = null;
+		}
 
 		// if(lights)
 		// {

@@ -39,7 +39,7 @@ public class Shake : MonoBehaviour {
 	void StopShake()
 	{
 		StopAllCoroutines();
-		transform.localPosition = origin;
+	//	transform.localPosition = origin;
 	}
 
 	IEnumerator ShakeIt()
@@ -47,7 +47,12 @@ public class Shake : MonoBehaviour {
 		
 		while(true)
 		{
-			transform.localPosition = new Vector3(origin.x + UnityEngine.Random.Range(rangeMin, rangeMax), origin.y + UnityEngine.Random.Range(rangeMin, rangeMax), origin.z + UnityEngine.Random.Range(rangeMin, rangeMax));
+			//transform.localPosition = new Vector3(origin.x + UnityEngine.Random.Range(rangeMin, rangeMax), origin.y + UnityEngine.Random.Range(rangeMin, rangeMax), origin.z + UnityEngine.Random.Range(rangeMin, rangeMax));
+			transform.position = new Vector3(
+												transform.position.x + UnityEngine.Random.Range(rangeMin, rangeMax),
+												transform.position.y + UnityEngine.Random.Range(rangeMin, rangeMax),
+												transform.position.z + UnityEngine.Random.Range(rangeMin, rangeMax)
+											);
 			yield return new WaitForSeconds(shakeRate);
 		}
 	}

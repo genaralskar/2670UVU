@@ -128,7 +128,7 @@ public class MoveCharacter : MonoBehaviour {
 		{
 			MoveInput.KeyAction = null;
 			gravityOn = false;
-			MoveInput.HorzVertAction = null;
+		//	MoveInput.HorzVertAction = null;
 			MoveInput.HorzVertAction = ClimbMove;
 		//	MoveInput.HorzVertAction += flip.ClimbFlip;
 			MoveInput.JumpAction -= Jump;
