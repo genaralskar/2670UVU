@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlatBaFShake : MonoBehaviour {
 
 	Vector3 startPoint;
-	public PlatShake shake;
+	public PlatShakeLegacy shake;
 	public Vector3 endPoint;
 	public float speed;
 	public float startLoopDelay = 0;

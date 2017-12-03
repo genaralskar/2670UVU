@@ -7,17 +7,22 @@ public class PlatShake : MonoBehaviour {
 	public float rangeMin = -0.02f;
 	public float rangeMax = 0.02f;
 	public float shakeRate = .1f;
+	Transform child;
 	Vector3 origin;
 
 	void Start()
 	{
 		origin = transform.localPosition;
 		RespawnPlayer.RespawnAction += OnRespawn;
+		if(transform.GetChild(0) != null)
+		{
+			child = transform.GetChild(0);
+		}
 	}
 
 	public void StartShake()
 	{
-		origin = transform.localPosition;
+		origin = child.localPosition;
 		StartCoroutine(Shake());
 	}
 
@@ -26,20 +31,21 @@ public class PlatShake : MonoBehaviour {
 	{
 		StopAllCoroutines();
 	//	print("reset platform: " + reset);
-		if(reset)
-			transform.localPosition = origin;
+		if(reset && child != null)
+			child.localPosition = origin;
 	}
 	// public void EndShake()
 	// {
 	// 	StopAllCoroutines();
-	// 	transform.localPosition = origin;
+	// 	child.localPosition = origin;
 	// }
 
 	IEnumerator Shake()
 	{
 		while(true)
 		{
-			transform.localPosition = new Vector3(origin.x + UnityEngine.Random.Range(rangeMin, rangeMax), origin.y + UnityEngine.Random.Range(rangeMin, rangeMax), origin.z + UnityEngine.Random.Range(rangeMin, rangeMax));
+			child.localPosition = new Vector3(origin.x + UnityEngine.Random.Range(rangeMin, rangeMax), origin.y + UnityEngine.Random.Range(rangeMin, rangeMax), origin.z);
+			//origin.z + UnityEngine.Random.Range(rangeMin, rangeMax
 			yield return new WaitForSeconds(shakeRate);
 		}
 	}

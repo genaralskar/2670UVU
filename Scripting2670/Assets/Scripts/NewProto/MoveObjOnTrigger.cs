@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoveObjOnTrigger : MonoBehaviour {
 
 	public PlatMoveTo obj;
-	bool moving;
+	bool moving = false;
 
 
 	void Start()
@@ -20,8 +20,10 @@ public class MoveObjOnTrigger : MonoBehaviour {
 	//	print(Time.time);
 		
 		if(!moving)
+		{
 			obj.StartMove();
-		
+			moving = true;
+		}
 	}
 
 

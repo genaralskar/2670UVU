@@ -16,12 +16,16 @@ public class TriggerPlatBaFShake : MonoBehaviour {
 	void OnTriggerEnter()
 	{
 		if(!moving)
+		{
 			shake.StartMove();
+			moving = true;
+		}
+			
 	}
 
 	void OnRespawn()
 	{
-		moving = true;
+		moving = false;
 	}
 
 }
