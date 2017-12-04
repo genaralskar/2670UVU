@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PlatShake))]
+[RequireComponent(typeof(PlatShakeLegacy))]
 public class BlastOff : MonoBehaviour {
 
 	Vector3 origin;
-	PlatShake shake;
+	PlatShakeLegacy shake;
 	public ParticleSystem fire;
 	public Vector3 endLoc;
 	public float speed;
@@ -18,7 +18,7 @@ public class BlastOff : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		shake = GetComponent<PlatShake>();
+		shake = GetComponent<PlatShakeLegacy>();
 		origin = transform.position;
 	}
 
