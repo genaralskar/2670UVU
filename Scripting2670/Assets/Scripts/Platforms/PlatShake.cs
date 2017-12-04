@@ -12,12 +12,12 @@ public class PlatShake : MonoBehaviour {
 
 	void Start()
 	{
-		origin = transform.localPosition;
 		RespawnPlayer.RespawnAction += OnRespawn;
 		if(transform.GetChild(0) != null)
 		{
 			child = transform.GetChild(0);
 		}
+		origin = child.localPosition;
 	}
 
 	public void StartShake()

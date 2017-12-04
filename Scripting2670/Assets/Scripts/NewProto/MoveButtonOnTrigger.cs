@@ -13,6 +13,7 @@ public class MoveButtonOnTrigger : MonoBehaviour {
 	void Start()
 	{
 		origin = transform.position;
+		endLoc.x = transform.position.x;
 	}
 
 	void OnTriggerEnter(Collider other)
