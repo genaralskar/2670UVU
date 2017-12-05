@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class GatorGrab : MonoBehaviour {
 
+	public Transform parent;
+
 	void OnTriggerEnter(Collider other)
 	{
-		if(other.tag == "Player")
+		RespawnPlayer res = other.GetComponent<RespawnPlayer>();
+		if(res != null)
 		{
-			other.transform.parent = transform.root;
-			other.GetComponent<GrabDeath>().DeathStart();
-		}
+			res.Respawn();
+			other.transform.parent = parent;
+		}	
+		
+		
 	}
 }

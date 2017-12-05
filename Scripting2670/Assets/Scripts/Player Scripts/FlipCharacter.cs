@@ -13,7 +13,7 @@ public class FlipCharacter : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		// StartButtonScript.Play += OnPlay;
-		MoveInput.KeyAction += Flip;
+		ResetFlip();
 		print(MoveInput.KeyAction);
 	}
 
@@ -21,6 +21,12 @@ public class FlipCharacter : MonoBehaviour {
 	{
 		MoveInput.KeyAction += Flip;
 		StartButtonScript.Play -= OnPlay;
+	}
+
+	public void ResetFlip()
+	{
+		print("fliiip");
+		MoveInput.KeyAction += Flip;
 	}
 
     public void Flip(float obj)

@@ -32,6 +32,7 @@ public class MoveCharacter : MonoBehaviour {
 	Action OnLandAction;
 
 	public Animator anims;
+	public FlipCharacter flip;
 
 	public ParticleSystem doubleJumpPart;
 	public float zPos = 0;
@@ -145,6 +146,7 @@ public class MoveCharacter : MonoBehaviour {
 		//	MoveInput.KeyAction += flip.Flip;
 			MoveInput.HorzVertAction = null;
 			MoveInput.JumpAction += Jump;
+			flip.ResetFlip();
 			isClimbing = false;
 		}
 	}

@@ -37,12 +37,12 @@ public class ChangeLight : MonoBehaviour {
 		float changeAmount = thisLight.intensity / (changeTime/changeInterval);
 		print(changeAmount);
 
-		while(thisLight.intensity != endIntensity)
+		while(thisLight.intensity >= endIntensity)
 		{
 			thisLight.intensity -= changeAmount;
 			yield return new WaitForSeconds(changeInterval);
 		}
-
+		thisLight.intensity = endIntensity;
 		if (thisLight.intensity < 0)
 			thisLight.intensity = 0;
 
