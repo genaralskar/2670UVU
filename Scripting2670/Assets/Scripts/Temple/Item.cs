@@ -20,8 +20,12 @@ public class Item : MonoBehaviour {
 
 	void MoveToLastPedestal()
 	{
-		lastPedestal.item = this;
-		lastPedestal.UpdateItemPos();
+		if(lastPedestal != null)
+		{
+			lastPedestal.item = this;
+			lastPedestal.UpdateItemPos();
+		}
+		
 	}
 
 	void End()
