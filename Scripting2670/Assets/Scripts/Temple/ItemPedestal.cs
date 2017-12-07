@@ -31,6 +31,7 @@ public class ItemPedestal : MonoBehaviour {
 		print(this);
 		item.transform.parent = itemHolder;
 		item.transform.localPosition = Vector3.zero;
+		item.transform.localRotation = itemHolder.transform.rotation;
 		item.lastPedestal = this;
 	}
 

@@ -47,7 +47,8 @@ public class RespawnPlayer : MonoBehaviour {
 		print("Respawning = " + isRespawning);
 		mainCamera.GetComponent<CameraTrack>().StopTrack();
 	//	GetComponent<MoveCharacter>().DeathStart();
-		MoveInput.KeyAction = null;
+	//	MoveInput.KeyAction = null;
+		flip.doFlip = false;
 		MoveInput.JumpAction -= moveChara.Jump;
 	//	tempSpeed = speed;
 		moveChara.speed = 0;
@@ -62,6 +63,7 @@ public class RespawnPlayer : MonoBehaviour {
 		ChangePos();
 		MoveInput.KeyAction = moveChara.Move;
 		MoveInput.KeyAction += flip.Flip;
+		flip.doFlip = true;
 		MoveInput.HorzVertAction = null;
 		moveChara.isClimbing = false;
 	//	GetComponent<MoveCharacter>().DeathStop();

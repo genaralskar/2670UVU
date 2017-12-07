@@ -118,8 +118,8 @@ public class MoveCharacter : MonoBehaviour {
 		if(zLock && transform.position.z != zPos)
 			transform.position = new Vector3(transform.position.x, transform.position.y, zPos);
 
-		anims.SetFloat("Walk", Mathf.Abs(_movement));
-		anims.SetBool("Falling", gravityOn);
+	//	anims.SetFloat("Walk", Mathf.Abs(_movement));
+	//	anims.SetBool("Falling", gravityOn);
 	//	anims.speed = Mathf.Abs(_movement);
 	}
 	
@@ -260,12 +260,5 @@ public class MoveCharacter : MonoBehaviour {
 	{
 		gravity = 0;
 		tempMove = Vector3.zero;
-	}
-
-
-
-	void Animation()
-	{
-		anims.SetFloat("Walk", Mathf.Abs(Input.GetAxis("Horizontal")));
 	}
 }

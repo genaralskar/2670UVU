@@ -9,6 +9,7 @@ public class FlipCharacter : MonoBehaviour {
 	Vector3 rotValue;
 	public float rotateAmount = 180;
 	public float offset = 90;
+	public bool doFlip = true;
 
 	// Use this for initialization
 	void Start () {
@@ -32,9 +33,9 @@ public class FlipCharacter : MonoBehaviour {
     public void Flip(float obj)
     {
 	//	print(obj);
-		if(obj > 0 && rotValue.y != 0)
+		if(obj > 0 && rotValue.y != 0 && doFlip)
 			rotValue.y = 0 + offset;
-		else if(obj < 0 && rotValue.y != rotateAmount)
+		else if(obj < 0 && rotValue.y != rotateAmount && doFlip)
 			rotValue.y = rotateAmount + offset;
 
 		myQuat.eulerAngles = rotValue;
