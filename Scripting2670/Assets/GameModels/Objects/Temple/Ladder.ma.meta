@@ -28,7 +28,9 @@ ModelImporter:
     400018: pCube433
     400020: pCube434
     2300000: pCube434
+    2300002: //RootNode
     3300000: pCube434
+    3300002: //RootNode
     4300000: pCube434
     9500000: //RootNode
   materials:
