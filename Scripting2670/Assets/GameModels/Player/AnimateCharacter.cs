@@ -29,7 +29,7 @@ public class AnimateCharacter : MonoBehaviour {
 
     public void FixedUpdate()
     {
-		print("anims");
+	//	print("anims");
         anims.SetFloat("Walk", Mathf.Abs(Input.GetAxis("Horizontal")));
 		if(anims.GetFloat("Walk") == 0 && !idleCheck)
 		{

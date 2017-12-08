@@ -26,7 +26,7 @@ public class FlipCharacter : MonoBehaviour {
 
 	public void ResetFlip()
 	{
-		print("fliiip");
+	//	print("fliiip");
 		MoveInput.KeyAction += Flip;
 	}
 
