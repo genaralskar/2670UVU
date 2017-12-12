@@ -6,6 +6,11 @@
 		_MainColor ("Water Color", Color) = (1, 1, 1, 1)
 		_Tint("Tint", Color) = (1, 1, 1, .5)
 		_FoamWidth("Foamline Width", Range(0, 3)) = .5
+
+		_NoiseTex("Extra Wave Noise", 2D) = "white" {}
+		_Speed("Wave Speed", Range(0,1)) = 0
+		_Amount("Wave Amount", Range(0,1)) = 0
+		_Height("Wave Height", Range(0,1)) = 0
 	}
 	SubShader
 	{
@@ -42,16 +47,18 @@
 			};
 
 			float4 _Tint;
-			sampler2D _MainTex;
+			sampler2D _MainTex, _NoiseTex;
 			float4 _MainTex_ST;
 			uniform sampler2D _CameraDepthTexture;
-			float _FoamWidth;
+			float _FoamWidth, _Speed, _Amount, _Height;
 			float4 _MainColor;
 
 			
 			v2f vert (appdata v)
 			{
 				v2f o;
+				float4 tex = tex2Dlod(_NoiseTex, float4(v.uv.xy, 0, 0));//extra noise tex
+				v.vertex.y += sin(_Time.z * _Speed + (v.vertex.z * _Amount * tex)) * _Height; //movement
 				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 

@@ -13,6 +13,7 @@ public class MoveButtonOnce : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		origin = transform.position;
+		endLocation.x = transform.position.x;
 	}
 	
 	void OnTriggerEnter(Collider other)
@@ -31,5 +32,10 @@ public class MoveButtonOnce : MonoBehaviour {
 			transform.position = Vector3.MoveTowards(transform.position, endLocation, speed * Time.deltaTime);
 			yield return null;
 		}
+	}
+
+	void ReturnToStart()
+	{
+		transform.position = origin;
 	}
 }
