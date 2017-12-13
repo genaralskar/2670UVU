@@ -11,7 +11,8 @@ public class SpikeAnimationControl : MonoBehaviour {
 	void Start()
 	{
 		agent = transform.parent.GetComponent<NavMeshAgent>();
-	//	StartCoroutine(Blink());
+		anim = GetComponent<Animator>();
+		StartCoroutine(Blink());
 	}
 	
 	void FixedUpdate()
@@ -21,8 +22,8 @@ public class SpikeAnimationControl : MonoBehaviour {
 
 	IEnumerator Blink()
 	{
-		anim.SetTrigger("Blink");
-		yield return new WaitForSeconds(Random.Range(1,1));
+	//	anim.SetTrigger("Blink");
+		yield return new WaitForSeconds(Random.Range(8,10));
 		StartCoroutine(Blink());
 	}
 }
