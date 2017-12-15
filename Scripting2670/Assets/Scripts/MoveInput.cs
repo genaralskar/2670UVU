@@ -51,14 +51,14 @@ public class MoveInput : MonoBehaviour {
 			{
 				JumpAction();
 			}
-			if(CrouchAction != null && Input.GetButtonDown("Crouch"))
-			{
-				CrouchAction();
-			}
-			if(CrouchAction != null && Input.GetButtonUp("Crouch"))
-			{
-				EndCrouchAction();
-			}
+			// if(CrouchAction != null && Input.GetButtonDown("Crouch"))
+			// {
+			// 	CrouchAction();
+			// }
+			// if(CrouchAction != null && Input.GetButtonUp("Crouch"))
+			// {
+			// 	EndCrouchAction();
+			// }
 			if(Input.GetButtonDown("Climb") && ClimbAction != null)
 			{
 				ClimbAction();
